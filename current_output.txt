@@ -1,0 +1,503 @@
+/usr/local/lib/python3.11/dist-packages/cupyx/jit/_interface.py:173: FutureWarning: cupyx.jit.rawkernel is experimental. The interface can change in the future.
+  cupy._util.experimental('cupyx.jit.rawkernel')
+
+Traitement de 152 fichiers PSG...
+🚀 Lancement du traitement parallèle sur 4 PSG en parallèle (GPU friendly)
+
+Traitement du fichier: SC4001E0-PSG.edf
+
+Traitement du fichier: SC4002E0-PSG.edf
+
+Traitement du fichier: SC4011E0-PSG.edf
+
+Traitement du fichier: SC4012E0-PSG.edf
+
+Traitement des fichiers PSG:   0%|          | 0/152 [00:00<?, ?it/s]
+
+  ✅ Fichier hypnogramme trouvé: SC4001EC-Hypnogram.edf
+  ✅ Fichier hypnogramme trouvé: SC4002EC-Hypnogram.edf
+  ✅ Fichier hypnogramme trouvé: SC4011EH-Hypnogram.edf
+  ✅ Fichier hypnogramme trouvé: SC4012EC-Hypnogram.edf
+
+<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+
+  🔌 Canaux EEG disponibles: ['EEG Fpz-Cz', 'EEG Pz-Oz']
+  🔌 Canaux EEG disponibles: ['EEG Fpz-Cz', 'EEG Pz-Oz']
+NOTE: pick_channels() is a legacy function. New code should use inst.pick(...).
+
+<ipython-input-7-6f88dd5679f2>:259: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:259: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:259: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:259: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:259: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:259: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+
+  🔌 Canaux EEG disponibles: ['EEG Fpz-Cz', 'EEG Pz-Oz']
+
+<ipython-input-7-6f88dd5679f2>:269: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw.set_annotations(annotations)
+<ipython-input-7-6f88dd5679f2>:259: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:259: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:259: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:269: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw.set_annotations(annotations)
+
+  🔌 Canaux EEG disponibles: ['EEG Fpz-Cz', 'EEG Pz-Oz']
+
+<ipython-input-7-6f88dd5679f2>:259: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:259: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:259: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+
+✅ Données chargées: 2650 époques, 7 canaux
+✅ Données chargées: 2850 époques, 7 canaux
+
+<ipython-input-7-6f88dd5679f2>:269: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw.set_annotations(annotations)
+
+✅ Données chargées: 2830 époques, 7 canaux
+
+<ipython-input-7-6f88dd5679f2>:269: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw.set_annotations(annotations)
+
+  ✅ Filtrage appliqué avec succès
+  📊 Extraction des caractéristiques pour 2650 époques x 2 canaux...
+  ⚠️  Mode GPU activé - Traitement séquentiel pour stabilité
+
+
+  - Extraction des features (GPU):   0%|          | 0/5300 [00:00<?, ?it/s]
+
+✅ Données chargées: 2802 époques, 7 canaux
+  ✅ Filtrage appliqué avec succès
+  📊 Extraction des caractéristiques pour 2850 époques x 2 canaux...
+  ⚠️  Mode GPU activé - Traitement séquentiel pour stabilité
+
+
+
+  - Extraction des features (GPU):   0%|          | 0/5700 [00:00<?, ?it/s]
+  - Extraction des features (GPU):  11%|█         | 581/5300 [00:05<00:40, 116.06it/s]
+
+  - Extraction des features (GPU):   9%|▉         | 529/5700 [00:05<00:48, 105.69it/s]
+  - Extraction des features (GPU):  22%|██▏       | 1162/5300 [00:11<00:39, 103.95it/s]
+
+  - Extraction des features (GPU):  19%|█▊        | 1058/5700 [00:10<00:45, 101.19it/s]
+  - Extraction des features (GPU):  32%|███▏      | 1686/5300 [00:16<00:35, 101.88it/s]
+
+  - Extraction des features (GPU):  28%|██▊       | 1583/5700 [00:15<00:40, 102.87it/s]
+  - Extraction des features (GPU):  41%|████▏     | 2198/5300 [00:21<00:30, 101.45it/s]
+
+  - Extraction des features (GPU):  37%|███▋      | 2098/5700 [00:20<00:35, 101.71it/s]
+
+  ✅ Filtrage appliqué avec succès
+  📊 Extraction des caractéristiques pour 2830 époques x 2 canaux...
+  ⚠️  Mode GPU activé - Traitement séquentiel pour stabilité
+
+
+
+
+  - Extraction des features (GPU):   0%|          | 0/5660 [00:00<?, ?it/s]
+  - Extraction des features (GPU):  51%|█████     | 2707/5300 [00:26<00:25, 101.42it/s]
+
+  - Extraction des features (GPU):  46%|████▌     | 2607/5700 [00:25<00:30, 100.98it/s]
+
+
+  - Extraction des features (GPU):   8%|▊         | 425/5660 [00:05<01:01, 84.78it/s]
+
+  ✅ Filtrage appliqué avec succès
+  📊 Extraction des caractéristiques pour 2802 époques x 2 canaux...
+  ⚠️  Mode GPU activé - Traitement séquentiel pour stabilité
+
+
+
+
+
+  - Extraction des features (GPU):   0%|          | 0/5604 [00:00<?, ?it/s]
+  - Extraction des features (GPU):  61%|██████    | 3215/5300 [00:31<00:21, 97.57it/s] 
+
+  - Extraction des features (GPU):  55%|█████▍    | 3113/5700 [00:32<00:28, 91.10it/s] 
+
+
+
+  - Extraction des features (GPU):   6%|▌         | 328/5604 [00:05<01:20, 65.33it/s]
+
+
+  - Extraction des features (GPU):  15%|█▌        | 849/5660 [00:10<01:01, 78.07it/s]
+  - Extraction des features (GPU):  70%|██████▉   | 3705/5300 [00:39<00:18, 86.56it/s]
+
+
+
+  - Extraction des features (GPU):  12%|█▏        | 685/5604 [00:10<01:11, 68.83it/s]
+
+  - Extraction des features (GPU):  63%|██████▎   | 3577/5700 [00:38<00:25, 83.70it/s]
+
+
+  - Extraction des features (GPU):  22%|██▏       | 1242/5660 [00:15<00:57, 77.42it/s]
+  - Extraction des features (GPU):  78%|███████▊  | 4148/5300 [00:45<00:14, 81.85it/s]
+
+
+
+  - Extraction des features (GPU):  18%|█▊        | 1030/5604 [00:15<01:08, 67.18it/s]
+
+
+  - Extraction des features (GPU):  29%|██▉       | 1630/5660 [00:21<00:54, 73.53it/s]
+
+  - Extraction des features (GPU):  70%|███████   | 4005/5700 [00:44<00:21, 79.84it/s]
+  - Extraction des features (GPU):  86%|████████▌ | 4565/5300 [00:50<00:09, 79.48it/s]
+
+
+
+  - Extraction des features (GPU):  25%|██▌       | 1412/5604 [00:20<00:59, 70.73it/s]
+
+
+  - Extraction des features (GPU):  35%|███▌      | 1999/5660 [00:27<00:52, 70.24it/s]
+
+  - Extraction des features (GPU):  77%|███████▋  | 4411/5700 [00:50<00:16, 77.56it/s]
+  - Extraction des features (GPU):  94%|█████████▎| 4967/5300 [00:56<00:04, 77.13it/s]
+
+
+
+  - Extraction des features (GPU):  32%|███▏      | 1767/5604 [00:25<00:55, 69.45it/s]
+
+
+  - Extraction des features (GPU):  42%|████▏     | 2352/5660 [00:32<00:47, 69.29it/s]
+
+  - Extraction des features (GPU):  84%|████████▍ | 4803/5700 [00:55<00:11, 76.47it/s]
+                                                                                      
+
+  - Préparation des données pour le clustering...
+  - Normalisation des données...
+  - Démarrage du benchmark...
+[2025-06-08 13:56:06.763] [CUML] [info] build_algo set to brute_force_knn because random_state is given
+
+  - Test de UMAP...
+    - Test de KMeans... 
+
+/usr/local/lib/python3.11/dist-packages/cuml/internals/api_decorators.py:195: FutureWarning: The default value of `n_init` will change from 1 to 'auto' in 25.04. Set the value of `n_init` explicitly to suppress this warning.
+  return func(*args, **kwargs)
+
+
+
+
+  - Extraction des features (GPU):  38%|███▊      | 2115/5604 [00:30<00:51, 68.02it/s]/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+
+
+  - Extraction des features (GPU):  48%|████▊     | 2711/5660 [00:37<00:42, 70.03it/s]
+
+    📊 Cluster 0: 411 samples (valid: 411), majority label = 2 (144 samples)
+    📊 Cluster 1: 547 samples (valid: 547), majority label = 0 (546 samples)
+    📊 Cluster 2: 889 samples (valid: 889), majority label = 0 (884 samples)
+    📊 Cluster 3: 350 samples (valid: 350), majority label = 3 (219 samples)
+    📊 Cluster 4: 453 samples (valid: 453), majority label = 0 (453 samples)
+✓
+    - Test de HDBSCAN... 
+
+
+
+  - Extraction des features (GPU):  91%|█████████ | 5188/5700 [01:01<00:06, 74.13it/s]
+
+    📊 Cluster 0: 1000 samples (valid: 1000), majority label = 0 (999 samples)
+    📊 Cluster 1: 889 samples (valid: 889), majority label = 0 (884 samples)
+    📊 Cluster 2: 12 samples (valid: 12), majority label = 0 (11 samples)
+    📊 Cluster 3: 749 samples (valid: 749), majority label = 2 (247 samples)
+✓
+
+📊 Résumé SC4001E0-PSG.edf:
+  Clusters avec label valide: 9 / 4
+  Clusters ignorés (aucun label valide): 0
+
+
+  - Test de PCA...
+    - Test de KMeans... 
+
+/usr/local/lib/python3.11/dist-packages/cuml/internals/api_decorators.py:195: FutureWarning: The default value of `n_init` will change from 1 to 'auto' in 25.04. Set the value of `n_init` explicitly to suppress this warning.
+  return func(*args, **kwargs)
+
+    📊 Cluster 0: 222 samples (valid: 222), majority label = 3 (196 samples)
+    📊 Cluster 1: 842 samples (valid: 842), majority label = 0 (820 samples)
+    📊 Cluster 2: 218 samples (valid: 218), majority label = 0 (217 samples)
+    📊 Cluster 3: 611 samples (valid: 611), majority label = 2 (231 samples)
+    📊 Cluster 4: 757 samples (valid: 757), majority label = 0 (754 samples)
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+
+
+
+  - Extraction des features (GPU):  45%|████▌     | 2544/5604 [00:35<00:41, 73.65it/s]
+
+    📊 Cluster 0: 15 samples (valid: 15), majority label = 0 (15 samples)
+    📊 Cluster 1: 12 samples (valid: 12), majority label = 0 (12 samples)
+    📊 Cluster 2: 43 samples (valid: 43), majority label = 3 (43 samples)
+    📊 Cluster 3: 12 samples (valid: 12), majority label = 0 (12 samples)
+    📊 Cluster 4: 24 samples (valid: 24), majority label = 3 (24 samples)
+    📊 Cluster 5: 14 samples (valid: 14), majority label = 0 (12 samples)
+    📊 Cluster 6: 21 samples (valid: 21), majority label = 3 (13 samples)
+    📊 Cluster 7: 17 samples (valid: 17), majority label = 3 (13 samples)
+    📊 Cluster 8: 11 samples (valid: 11), majority label = 3 (11 samples)
+    📊 Cluster 9: 24 samples (valid: 24), majority label = 0 (24 samples)
+    📊 Cluster 10: 25 samples (valid: 25), majority label = 0 (25 samples)
+    📊 Cluster 11: 13 samples (valid: 13), majority label = 0 (13 samples)
+    📊 Cluster 12: 25 samples (valid: 25), majority label = 0 (23 samples)
+    📊 Cluster 13: 42 samples (valid: 42), majority label = 2 (32 samples)
+    📊 Cluster 14: 311 samples (valid: 311), majority label = 2 (146 samples)
+    📊 Cluster 15: 12 samples (valid: 12), majority label = 0 (12 samples)
+    📊 Cluster 16: 1197 samples (valid: 1197), majority label = 0 (1192 samples)
+    📊 Cluster 17: 10 samples (valid: 10), majority label = 0 (10 samples)
+✓
+
+📊 Résumé SC4001E0-PSG.edf:
+  Clusters avec label valide: 23 / 18
+  Clusters ignorés (aucun label valide): 0
+
+
+  - Test de None...
+    - Test de KMeans... 
+
+/usr/local/lib/python3.11/dist-packages/cuml/internals/api_decorators.py:195: FutureWarning: The default value of `n_init` will change from 1 to 'auto' in 25.04. Set the value of `n_init` explicitly to suppress this warning.
+  return func(*args, **kwargs)
+
+
+
+  - Extraction des features (GPU):  56%|█████▌    | 3155/5660 [00:42<00:33, 75.77it/s]
+
+    📊 Cluster 0: 946 samples (valid: 946), majority label = 0 (795 samples)
+    📊 Cluster 1: 838 samples (valid: 838), majority label = 0 (837 samples)
+    📊 Cluster 2: 75 samples (valid: 75), majority label = 0 (68 samples)
+    📊 Cluster 3: 789 samples (valid: 789), majority label = 0 (297 samples)
+    📊 Cluster 4: 2 samples (valid: 2), majority label = 1 (1 samples)
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+
+  - Extraction des features (GPU):  98%|█████████▊| 5603/5700 [01:06<00:01, 76.59it/s]
+
+                                                                                      /usr/local/lib/python3.11/dist-packages/cuml/internals/api_decorators.py:195: FutureWarning: The default value of `n_init` will change from 1 to 'auto' in 25.04. Set the value of `n_init` explicitly to suppress this warning.
+  return func(*args, **kwargs)
+
+  - Préparation des données pour le clustering...
+  - Normalisation des données...
+  - Démarrage du benchmark...
+[2025-06-08 13:56:15.768] [CUML] [info] build_algo set to brute_force_knn because random_state is given
+
+  - Test de UMAP...
+    - Test de KMeans...     📊 Cluster 0: 31 samples (valid: 31), majority label = 3 (31 samples)
+    📊 Cluster 1: 1702 samples (valid: 1702), majority label = 0 (1274 samples)
+✓
+
+📊 Résumé SC4001E0-PSG.edf:
+  Clusters avec label valide: 7 / 2
+  Clusters ignorés (aucun label valide): 0
+
+Traitement des fichiers PSG:   1%|          | 1/152 [01:31<3:50:41, 91.67s/it]
+
+
+Traitement du fichier: SC4021E0-PSG.edf
+  ✅ Fichier hypnogramme trouvé: SC4021EH-Hypnogram.edf
+
+<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+
+    📊 Cluster 0: 623 samples (valid: 623), majority label = 0 (623 samples)
+    📊 Cluster 1: 1060 samples (valid: 1060), majority label = 2 (658 samples)
+    📊 Cluster 2: 359 samples (valid: 359), majority label = 0 (359 samples)
+    📊 Cluster 3: 536 samples (valid: 536), majority label = 0 (524 samples)
+    📊 Cluster 4: 272 samples (valid: 272), majority label = 0 (272 samples)
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+
+
+
+  - Extraction des features (GPU):  53%|█████▎    | 2966/5604 [00:40<00:34, 76.96it/s]
+
+
+  - Extraction des features (GPU):  64%|██████▍   | 3630/5660 [00:47<00:24, 81.59it/s]
+
+    📊 Cluster 0: 57 samples (valid: 57), majority label = 0 (57 samples)
+    📊 Cluster 1: 1060 samples (valid: 1060), majority label = 2 (658 samples)
+    📊 Cluster 2: 53 samples (valid: 53), majority label = 0 (45 samples)
+    📊 Cluster 3: 1106 samples (valid: 1106), majority label = 0 (1102 samples)
+    📊 Cluster 4: 27 samples (valid: 27), majority label = 0 (27 samples)
+    📊 Cluster 5: 13 samples (valid: 13), majority label = 0 (13 samples)
+    📊 Cluster 6: 14 samples (valid: 14), majority label = 0 (14 samples)
+    📊 Cluster 7: 16 samples (valid: 16), majority label = 0 (16 samples)
+    📊 Cluster 8: 12 samples (valid: 12), majority label = 0 (12 samples)
+    📊 Cluster 9: 20 samples (valid: 20), majority label = 0 (20 samples)
+    📊 Cluster 10: 19 samples (valid: 19), majority label = 0 (19 samples)
+    📊 Cluster 11: 11 samples (valid: 11), majority label = 0 (11 samples)
+    📊 Cluster 12: 25 samples (valid: 25), majority label = 0 (25 samples)
+    📊 Cluster 13: 14 samples (valid: 14), majority label = 0 (14 samples)
+    📊 Cluster 14: 33 samples (valid: 33), majority label = 0 (33 samples)
+    📊 Cluster 15: 33 samples (valid: 33), majority label = 0 (33 samples)
+    📊 Cluster 16: 24 samples (valid: 24), majority label = 0 (24 samples)
+    📊 Cluster 17: 23 samples (valid: 23), majority label = 0 (23 samples)
+    📊 Cluster 18: 10 samples (valid: 10), majority label = 0 (10 samples)
+    📊 Cluster 19: 49 samples (valid: 49), majority label = 0 (49 samples)
+    📊 Cluster 20: 74 samples (valid: 74), majority label = 0 (74 samples)
+✓
+
+📊 Résumé SC4012E0-PSG.edf:
+  Clusters avec label valide: 26 / 21
+  Clusters ignorés (aucun label valide): 0
+
+
+  - Test de PCA...
+    - Test de KMeans... 
+
+/usr/local/lib/python3.11/dist-packages/cuml/internals/api_decorators.py:195: FutureWarning: The default value of `n_init` will change from 1 to 'auto' in 25.04. Set the value of `n_init` explicitly to suppress this warning.
+  return func(*args, **kwargs)
+
+    📊 Cluster 0: 475 samples (valid: 475), majority label = 0 (471 samples)
+    📊 Cluster 1: 528 samples (valid: 528), majority label = 0 (511 samples)
+    📊 Cluster 2: 1338 samples (valid: 1338), majority label = 2 (659 samples)
+    📊 Cluster 3: 171 samples (valid: 171), majority label = 0 (171 samples)
+    📊 Cluster 4: 338 samples (valid: 338), majority label = 0 (338 samples)
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+    📊 Cluster 0: 19 samples (valid: 19), majority label = 0 (19 samples)
+    📊 Cluster 1: 15 samples (valid: 15), majority label = 0 (15 samples)
+    📊 Cluster 2: 38 samples (valid: 38), majority label = 0 (38 samples)
+    📊 Cluster 3: 16 samples (valid: 16), majority label = 0 (16 samples)
+    📊 Cluster 4: 10 samples (valid: 10), majority label = 0 (10 samples)
+    📊 Cluster 5: 20 samples (valid: 20), majority label = 0 (19 samples)
+    📊 Cluster 6: 10 samples (valid: 10), majority label = 0 (10 samples)
+    📊 Cluster 7: 22 samples (valid: 22), majority label = 0 (22 samples)
+    📊 Cluster 8: 14 samples (valid: 14), majority label = 0 (14 samples)
+    📊 Cluster 9: 11 samples (valid: 11), majority label = 0 (9 samples)
+    📊 Cluster 10: 11 samples (valid: 11), majority label = 0 (11 samples)
+    📊 Cluster 11: 12 samples (valid: 12), majority label = 0 (12 samples)
+    📊 Cluster 12: 51 samples (valid: 51), majority label = 0 (51 samples)
+    📊 Cluster 13: 15 samples (valid: 15), majority label = 0 (14 samples)
+    📊 Cluster 14: 13 samples (valid: 13), majority label = 0 (13 samples)
+    📊 Cluster 15: 39 samples (valid: 39), majority label = 0 (39 samples)
+    📊 Cluster 16: 1201 samples (valid: 1201), majority label = 2 (654 samples)
+    📊 Cluster 17: 16 samples (valid: 16), majority label = 0 (16 samples)
+    📊 Cluster 18: 17 samples (valid: 17), majority label = 0 (17 samples)
+    📊 Cluster 19: 14 samples (valid: 14), majority label = 0 (14 samples)
+    📊 Cluster 20: 10 samples (valid: 10), majority label = 0 (10 samples)
+    📊 Cluster 21: 13 samples (valid: 13), majority label = 0 (13 samples)
+    📊 Cluster 22: 16 samples (valid: 16), majority label = 0 (16 samples)
+    📊 Cluster 23: 62 samples (valid: 62), majority label = 0 (62 samples)
+    📊 Cluster 24: 13 samples (valid: 13), majority label = 0 (13 samples)
+    📊 Cluster 25: 22 samples (valid: 22), majority label = 0 (22 samples)
+    📊 Cluster 26: 15 samples (valid: 15), majority label = 0 (15 samples)
+    📊 Cluster 27: 22 samples (valid: 22), majority label = 0 (22 samples)
+    📊 Cluster 28: 10 samples (valid: 10), majority label = 0 (10 samples)
+    📊 Cluster 29: 17 samples (valid: 17), majority label = 0 (17 samples)
+    📊 Cluster 30: 44 samples (valid: 44), majority label = 0 (44 samples)
+    📊 Cluster 31: 54 samples (valid: 54), majority label = 0 (54 samples)
+✓
+
+📊 Résumé SC4012E0-PSG.edf:
+  Clusters avec label valide: 37 / 32
+  Clusters ignorés (aucun label valide): 0
+
+
+  - Test de None...
+    - Test de KMeans... 
+
+/usr/local/lib/python3.11/dist-packages/cuml/internals/api_decorators.py:195: FutureWarning: The default value of `n_init` will change from 1 to 'auto' in 25.04. Set the value of `n_init` explicitly to suppress this warning.
+  return func(*args, **kwargs)
+
+    📊 Cluster 0: 285 samples (valid: 285), majority label = 0 (285 samples)
+    📊 Cluster 1: 1063 samples (valid: 1063), majority label = 2 (583 samples)
+    📊 Cluster 2: 628 samples (valid: 628), majority label = 0 (618 samples)
+    📊 Cluster 3: 356 samples (valid: 356), majority label = 0 (221 samples)
+    📊 Cluster 4: 518 samples (valid: 518), majority label = 0 (518 samples)
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+
+
+
+Traitement des fichiers PSG:   1%|▏         | 2/152 [01:39<1:45:56, 42.37s/it]<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-7-6f88dd5679f2>:361: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+
+
+
+  - Extraction des features (GPU):  74%|███████▍  | 4200/5660 [00:52<00:15, 91.37it/s]
+
+    📊 Cluster 0: 27 samples (valid: 27), majority label = 0 (27 samples)
+    📊 Cluster 1: 1656 samples (valid: 1656), majority label = 0 (764 samples)
+✓
+
+📊 Résumé SC4012E0-PSG.edf:
+  Clusters avec label valide: 7 / 2
+  Clusters ignorés (aucun label valide): 0
+
+
+Traitement du fichier: SC4022E0-PSG.edf
+  ✅ Fichier hypnogramme trouvé: SC4022EJ-Hypnogram.edf
+

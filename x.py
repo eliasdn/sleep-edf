@@ -1,33 +1,106 @@
 import os
+import sys
 import glob
 import warnings
+import logging
+import threading
 import numpy as np
 import pandas as pd
 import mne
-import umap.umap_ as umap
-import concurrent.futures
-import psutil
 from tqdm import tqdm
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import confusion_matrix, silhouette_score, calinski_harabasz_score, davies_bouldin_score
 from sklearn.decomposition import PCA
+from sklearn.metrics import (
+    silhouette_score, 
+    calinski_harabasz_score, 
+    davies_bouldin_score, 
+    confusion_matrix
+)
+from scipy import stats
+import umap.umap_ as umap
 from sklearn.cluster import KMeans as skKMeans
 import hdbscan
-from antropy import app_entropy, sample_entropy, petrosian_fd, katz_fd, detrended_fluctuation
-from scipy import stats, signal
-import antropy as ant
+import psutil
+import concurrent.futures
+from functools import partial
 import matplotlib.pyplot as plt
 from mne import Epochs, events_from_annotations
 from mne.io import read_raw_edf
 import multiprocessing
 from concurrent.futures import ProcessPoolExecutor, as_completed
 
-# Configuration globale
-USE_GPU = False  # Mettre à True pour utiliser le GPU si disponible
+# Configuration du logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('sleep_analysis.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+# Contexte pour supprimer temporairement les sorties (thread-safe)
+class SuppressOutput:
+    _local = threading.local()
+    _lock = threading.Lock()
+    _refcount = 0
+    
+    def __init__(self):
+        self._devnull = None
+        self._active = False
+    
+    def __enter__(self):
+        with self._lock:
+            if not hasattr(self._local, 'original_stdout'):
+                self._local.original_stdout = sys.stdout
+                self._local.original_stderr = sys.stderr
+            
+            if self._refcount == 0:
+                self._devnull = open(os.devnull, 'w')
+                sys.stdout = self._devnull
+                sys.stderr = self._devnull
+            
+            self._refcount += 1
+            self._active = True
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        with self._lock:
+            if not self._active:
+                return False
+                
+            self._refcount -= 1
+            self._active = False
+            
+            if self._refcount == 0 and hasattr(self._local, 'original_stdout'):
+                sys.stdout = self._local.original_stdout
+                sys.stderr = self._local.original_stderr
+                if self._devnull:
+                    self._devnull.close()
+        return False
+
+# GPU imports
+try:
+    import cupy as cp
+    from cupyx.scipy import signal as cusignal
+    from cuml import UMAP as cuUMAP
+    from cuml.cluster import KMeans as cuKMeans
+    GPU_AVAILABLE = True
+except ImportError:
+    print("Warning: GPU libraries not available. Falling back to CPU.")
+    import numpy as cp  # Fallback to numpy
+    from scipy import signal as cusignal
+    from sklearn.cluster import KMeans as cuKMeans
+    from umap import UMAP as cuUMAP
+    GPU_AVAILABLE = False
+
+# Configuration de l'utilisation du GPU
+USE_GPU = GPU_AVAILABLE  # Utiliser le GPU si disponible
 
 # Configuration des chemins
-PSG_DIR = "sleep_data/physiobank_database_sleep-edfx_sleep-cassette"
-HYPNO_DIR = "sleep_data/physiobank_database_sleep-edfx_sleep-cassette"
+PSG_DIR = "drive/MyDrive/A_collab/sleep_data/physiobank_database_sleep-edfx_sleep-cassette"
+HYPNO_DIR = "drive/MyDrive/A_collab/sleep_data/physiobank_database_sleep-edfx_sleep-cassette"
 OUTPUT_CSV = "sleep_clustering_results.csv"
 
 # Configuration des bandes de fréquence
@@ -40,91 +113,154 @@ bands = {
 }
 
 def process_channel(ch, sf, bands, ch_ref=None, position_norm=None):
-    """Extrait les caractéristiques d'un canal EEG."""
+    """Extrait les caractéristiques d'un canal EEG avec support GPU via CuPy."""
+    # Désactiver temporairement les logs pour les performances
+    with SuppressOutput():
+        # Validation et conversion des données d'entrée
+        try:
+            # Convertir en array numpy et forcer le type float32
+            ch = np.asarray(ch, dtype=np.float32).flatten()
+            if ch.ndim != 1 or len(ch) == 0 or np.all(np.isnan(ch)):
+                logger.warning(f"Canal invalide: ndim={ch.ndim}, shape={ch.shape}, nans={np.all(np.isnan(ch))}")
+                raise ValueError("Canal invalide")
+                
+            # Si la référence est fournie, la valider aussi
+            if ch_ref is not None:
+                ch_ref = np.asarray(ch_ref, dtype=np.float32).flatten()
+                if ch_ref.ndim != 1 or len(ch_ref) != len(ch) or np.all(np.isnan(ch_ref)):
+                    logger.debug("Référence invalide, utilisation de None")
+                    ch_ref = None
+                    
+        except Exception as e:
+            logger.error(f"Erreur de validation des données d'entrée: {e}", exc_info=True)
+            expected_size = 6 + len(bands) + 3 + (1 if position_norm is not None else 0)
+            return [0.0] * expected_size
+    
+    # Forcer l'initialisation du contexte CUDA si nécessaire
+    if USE_GPU:
+        try:
+            cp.cuda.Device(0).use()  # Force l'initialisation du device GPU
+        except Exception as e:
+            print(f"Avertissement: Impossible d'initialiser le GPU: {e}")
+            return [0.0] * (6 + len(bands) + 3 + (1 if position_norm is not None else 0))
+    
+    # Préparer les données avec le bon type et sur le bon device
+    if USE_GPU:
+        try:
+            # Conversion explicite et copie pour assurer la contigüité
+            ch_xp = cp.asarray(ch, dtype=cp.float32).copy()
+            ch_ref_xp = cp.asarray(ch_ref, dtype=cp.float32).copy() if ch_ref is not None else None
+            xp = cp
+            signal = cusignal
+            # Convertir la fréquence d'échantillonnage en float natif
+            sf_xp = float(sf)
+        except Exception as e:
+            print(f"Erreur lors de la préparation des données GPU: {e}")
+            return [0.0] * (6 + len(bands) + 3 + (1 if position_norm is not None else 0))
+    else:
+        try:
+            ch_xp = np.asarray(ch, dtype=np.float32)
+            ch_ref_xp = np.asarray(ch_ref, dtype=np.float32) if ch_ref is not None else None
+            xp = np
+            from scipy import signal
+            sf_xp = float(sf)
+        except Exception as e:
+            print(f"Erreur lors de la préparation des données CPU: {e}")
+            return [0.0] * (6 + len(bands) + 3 + (1 if position_norm is not None else 0))
+    
     features = []
     
-    # 1. Entropies
     try:
-        pe = ant.perm_entropy(ch, order=3, delay=1, normalize=True)
-        features.append(pe)
-    except Exception as e:
-        features.append(0.0)
+        # 1. Statistiques de base
+        ch_cpu = cp.asnumpy(ch_xp) if USE_GPU else ch_xp
+        xp = np  # Forcer l'utilisation de numpy pour les calculs CPU
+        features.extend([
+            float(xp.mean(ch_cpu)), 
+            float(xp.std(ch_cpu)), 
+            float(stats.skew(ch_cpu)), 
+            float(stats.kurtosis(ch_cpu)),
+            float(xp.percentile(ch_cpu, 5)), 
+            float(xp.percentile(ch_cpu, 95))
+        ])
         
-    try:
-        se = sample_entropy(ch, order=2, metric='chebyshev')
-        features.append(se)
-    except:
-        features.append(0.0)
-        
-    try:
-        ae = app_entropy(ch, order=2, metric='chebyshev')
-        features.append(ae)
-    except:
+        # 2. Analyse spectrale - Toujours utiliser le CPU pour la stabilité
         try:
-            ae = app_entropy(ch)
-            features.append(ae)
-        except:
-            features.append(0.0)
-    
-    # 2. Fractales
-    try:
-        pfd = petrosian_fd(ch)
-        features.append(pfd)
-    except:
-        features.append(0.0)
+            from scipy import signal as sp_signal  # Ajout clé pour éviter l'erreur GPU !
+            nperseg = min(256, len(ch_xp))
+            # Convertir en numpy si nécessaire (pour GPU) et utiliser scipy.signal.welch
+            ch_cpu = cp.asnumpy(ch_xp) if USE_GPU else ch_xp
+            freqs_cpu, psd_cpu = sp_signal.welch(ch_cpu, fs=sf_xp, nperseg=int(nperseg))
+                
+        except Exception as e:
+            print(f"Erreur dans l'analyse spectrale: {e}")
+            # Retourner un vecteur de zéros de la bonne taille
+            expected_size = 6 + len(bands) + 3 + (1 if position_norm is not None else 0)
+            return [0.0] * expected_size
+            
+        # Ajouter les bandes de fréquence
+        for band_name, (fmin, fmax) in bands.items():
+            band_mask = (freqs_cpu >= fmin) & (freqs_cpu <= fmax)
+            if np.any(band_mask):
+                band_power = float(np.sum(psd_cpu[band_mask]))
+                features.append(band_power)
+            else:
+                features.append(0.0)
         
-    try:
-        kfd = katz_fd(ch)
-        features.append(kfd)
-    except:
-        features.append(0.0)
-        
-    try:
-        dfa = detrended_fluctuation(ch)
-        features.append(dfa)
-    except:
-        features.append(0.0)
-    
-    # 3. Statistiques de base
-    features.extend([
-        np.mean(ch), np.std(ch), stats.skew(ch), stats.kurtosis(ch),
-        np.percentile(ch, 5), np.percentile(ch, 95)
-    ])
-    
-    # 4. Analyse spectrale
-    freqs, psd = signal.welch(ch, sf, nperseg=min(256, len(ch)))
-    for band_name, (fmin, fmax) in bands.items():
-        band_mask = (freqs >= fmin) & (freqs <= fmax)
-        if np.any(band_mask):
-            band_power = np.sum(psd[band_mask])
-            features.append(band_power)
+        # 3. Cohérence avec un autre canal (si fourni et activé)
+        ENABLE_COHERENCE = False  # Désactivé par défaut pour les tests
+        if ENABLE_COHERENCE and ch_ref is not None and ch_ref_xp is not None:
+            try:
+                f, coh = sp_signal.coherence(  # utiliser sp_signal ici aussi
+                    ch_cpu,
+                    cp.asnumpy(ch_ref_xp) if USE_GPU else ch_ref_xp,
+                    fs=sf, 
+                    nperseg=nperseg
+                )
+                coh_mean = float(np.mean(coh))
+                features.append(coh_mean)
+            except Exception as e:
+                print(f"Erreur de cohérence: {e}")
+                features.append(0.0)
         else:
             features.append(0.0)
-    
-    # 5. Cohérence avec un autre canal (si fourni)
-    if ch_ref is not None:
-        try:
-            f, coh = signal.coherence(ch, ch_ref, fs=sf, nperseg=min(256, len(ch)))
-            features.append(np.mean(coh))
-        except:
-            features.append(0.0)
-    else:
-        features.append(0.0)
-    
-    # 6. Paramètres de Hjorth
-    diff1 = np.diff(ch, 1)
-    diff2 = np.diff(ch, 2)
-    
-    # Mobilité
-    mobility = np.sqrt(np.var(diff1) / np.var(ch))
-    # Complexité
-    complexity = np.sqrt(np.var(diff2) * np.var(ch) / np.var(diff1) ** 2)
-    
-    features.extend([mobility, complexity])
-    
-    # 7. Position relative dans l'enregistrement (si fournie)
-    if position_norm is not None:
-        features.append(position_norm)
+        
+        # 4. Paramètres de Hjorth (désactivés par défaut pour les tests)
+        ENABLE_HJORTH = False
+        
+        if ENABLE_HJORTH:
+            try:
+                diff1 = xp.diff(ch_xp, 1)
+                diff2 = xp.diff(ch_xp, 2)
+                
+                var_ch = xp.var(ch_xp)
+                var_diff1 = xp.var(diff1)
+                var_diff2 = xp.var(diff2)
+                
+                mobility = float(xp.sqrt(var_diff1 / var_ch))
+                complexity = float(xp.sqrt((var_diff2 * var_ch) / (var_diff1 ** 2)))
+                
+                features.extend([mobility, complexity])
+            except Exception as e:
+                print(f"Erreur calcul Hjorth: {e}")
+                features.extend([0.0, 0.0])
+        else:
+            features.extend([0.0, 0.0])
+        
+        # 5. Position relative (si fournie)
+        if position_norm is not None:
+            features.append(float(position_norm))
+            
+        # Nettoyer la mémoire GPU si nécessaire
+        if USE_GPU:
+            cp.get_default_memory_pool().free_all_blocks()
+            
+    except Exception as e:
+        print(f"Erreur dans process_channel: {e}")
+        # Retourner un vecteur de zéros de la bonne taille en cas d'erreur
+        expected_size = 6 + len(bands) + 3  # stats + bandes + cohérence + hjorth
+        if position_norm is not None:
+            expected_size += 1
+        features = [0.0] * expected_size
     
     return features
 
@@ -183,9 +319,21 @@ def load_edf_with_annotations(psg_path, hypnogram_path, epoch_length=30.0):
     n_secs = n_samples / sfreq
     n_epochs = int(np.floor(n_secs / epoch_length))
 
-    # Charger les annotations de l'hypnogramme
-    raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
-    annotations = raw_annot.annotations
+    # Charger les annotations de l'hypnogramme avec mne.read_annotations
+    annotations = mne.read_annotations(hypnogram_path)
+    
+    # Appliquer les annotations au signal brut pour assurer l'alignement temporel
+    raw.set_annotations(annotations)
+    
+    # Créer les epochs fixes AVANT de récupérer les événements
+    # pour s'assurer que les temps sont correctement alignés
+    epochs = mne.make_fixed_length_epochs(raw, duration=epoch_length, preload=True)
+    
+    # Récupérer les événements à partir des annotations
+    events, event_id = mne.events_from_annotations(raw)
+    
+    # Créer un mapping inverse ID -> description
+    id_to_description = {v: k for k, v in event_id.items()}
     
     # Mapping des descriptions vers labels numériques
     stage_mapping = {
@@ -196,22 +344,44 @@ def load_edf_with_annotations(psg_path, hypnogram_path, epoch_length=30.0):
         'Sleep stage 4': 3,  # Sleep stage 3 et 4 fusionnés (convention AASM)
         'Sleep stage R': 4,
         'Sleep stage ?': -1,
-        'Movement time': -1
+        'Movement time': -1,
+        'Sleep stage S': 3,  # Certains datasets utilisent 'S' pour le sommeil profond
+        'Sleep stage 4': 3   # Redondant mais plus sûr
     }
     
     # Initialiser les labels à -1
-    true_labels = np.full(n_epochs, fill_value=-1, dtype=int)
+    true_labels = np.full(len(epochs), fill_value=-1, dtype=int)
     
-    # Remplir true_labels selon les annotations
-    for onset, duration, desc in zip(annotations.onset, annotations.duration, annotations.description):
-        start_epoch = int(onset // epoch_length)
-        n_epochs_this_stage = int(np.ceil(duration / epoch_length))
-        stage_label = stage_mapping.get(desc, -1)
+    # Remplir true_labels selon les événements
+    for event in events:
+        onset = event[0] / sfreq  # Convertir l'échantillon en secondes
+        desc_id = event[2]  # ID numérique de l'événement
+        desc_str = id_to_description.get(desc_id, '')  # Description textuelle
+        
+        # Obtenir le label correspondant à la description
+        stage_label = stage_mapping.get(desc_str, -1)
+        
+        # Si on n'a pas trouvé de correspondance directe, essayer une correspondance partielle
+        if stage_label == -1 and desc_str:
+            for key, value in stage_mapping.items():
+                if key in desc_str:
+                    stage_label = value
+                    break
         
         if stage_label != -1:
-            end_epoch = start_epoch + n_epochs_this_stage
-            # Sécuriser l'indexation pour ne pas dépasser n_epochs
-            true_labels[start_epoch:end_epoch] = stage_label
+            start_epoch = int(onset // epoch_length)
+            # Marquer cette époque avec le label correspondant
+            if start_epoch < len(true_labels):
+                true_labels[start_epoch] = stage_label
+    
+    # Lisser les labels pour remplir les époques sans annotation
+    # en propageant le dernier label valide
+    last_valid = -1
+    for i in range(len(true_labels)):
+        if true_labels[i] != -1:
+            last_valid = true_labels[i]
+        elif last_valid != -1:
+            true_labels[i] = last_valid
     
     # Créer les epochs fixes
     epochs = mne.make_fixed_length_epochs(raw, duration=epoch_length, preload=True)
@@ -229,91 +399,131 @@ def load_edf_with_annotations(psg_path, hypnogram_path, epoch_length=30.0):
 
 
 def process_single_psg_file(psg_path):
-    """Traite un seul fichier PSG et retourne un DataFrame de résultats."""
-    results = []
-    psg_name = os.path.basename(psg_path)
+    """Traite un seul fichier PSG et retourne un DataFrame avec les résultats."""
+    psg_filename = os.path.basename(psg_path)
+    subject_id = psg_filename.split('-')[0]
+    logger.info(f"Début du traitement du fichier: {psg_filename}")
     
     try:
-        print(f"\nTraitement du fichier: {psg_name}")
-        
-        # 1. Chercher le fichier hypnogram correspondant
-        base_name = os.path.basename(psg_path).replace('-PSG.edf', '')
-        hypno_dir = os.path.dirname(psg_path)
-            
+        # 1. Trouver le fichier hypnogramme correspondant
         hypno_path = find_hypnogram(psg_path)
+        if not hypno_path:
+            logger.warning(f"Aucun hypnogramme trouvé pour {psg_filename}")
+            return pd.DataFrame()
+            
+        logger.info(f"Fichier hypnogramme trouvé: {os.path.basename(hypno_path)}")
         
-        # 2. Charger les données EDF et les annotations
+        # 2. Charger les données EDF brutes
         try:
-            epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
-            raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False) 
-            print(f"  - Données chargées: {len(epochs)} époques, {len(epochs.ch_names)} canaux")
+            with SuppressOutput():
+                raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+            logger.debug(f"Fichier EDF chargé: {psg_filename}")
         except Exception as e:
-            print(f"  ❌ Erreur lors du chargement des données: {str(e)}")
+            logging.error(f"Erreur lors du chargement du fichier EDF: {e}", exc_info=True)
+            return pd.DataFrame()
+        
+        # 3. Filtrer les canaux pour ne garder que les canaux EEG valides
+        # Les canaux dans Sleep-EDF ont le préfixe 'EEG '
+        EEG_CHANNELS = ['EEG Fpz-Cz', 'EEG Pz-Oz']  # Noms complets des canaux EEG dans Sleep-EDF
+        available_eeg = [ch for ch in raw.ch_names if ch.startswith('EEG ')]
+        
+        if not available_eeg:
+            logging.warning(f"Aucun canal EEG valide trouvé dans {psg_filename}")
             return pd.DataFrame()
             
-        # 3. Vérifier les données
-        if epochs is None or len(epochs) == 0:
-            print("  ❌ Aucune donnée valide après chargement")
-            return pd.DataFrame()
-            
-        # 3. Prétraitement
+        logging.info(f"Canaux EEG disponibles: {available_eeg}")
+        
+        # 4. Sélectionner les canaux EEG (on prend les deux premiers s'ils existent)
+        eeg_channels = available_eeg[:2]  # Prendre les deux premiers canaux EEG
+        logging.info(f"Utilisation des canaux: {eeg_channels}")
+        
+        # 5. Créer des époques et extraire les caractéristiques
         try:
-            print("  - Filtrage du signal...")
-            raw.filter(1., 40.)
+            # 5.1 Créer des époques de 30 secondes
+            with SuppressOutput():
+                epochs = mne.make_fixed_length_epochs(raw, duration=30, preload=True, verbose=False)
+            logging.info(f"Création de {len(epochs)} époques de 30 secondes")
+            
+            # S'assurer que seuls les canaux EEG sont conservés
+            epochs.pick_channels(available_eeg)
+            
+            # Appliquer un filtre passe-bande
+            epochs.filter(0.5, 30., fir_design='firwin', verbose=False)
+            print("  ✅ Filtrage appliqué avec succès")
+            
+            # Récupérer les données brutes
             data = epochs.get_data()
-            sf = raw.info['sfreq']
-            print(f"  - Signal filtré: {sf} Hz")
+            sfreq = epochs.info['sfreq']
+            n_epochs, n_channels, n_times = data.shape
+            
+            logger.info(f"  📊 Extraction des caractéristiques pour {n_epochs} époques x {n_channels} canaux...")
+            
         except Exception as e:
-            print(f"  ❌ Erreur lors du prétraitement: {str(e)}")
+            logger.error(f"  ❌ Erreur lors du prétraitement: {e}")
             return pd.DataFrame()
         
-        # 5. Traitement des canaux
-        n_epochs, n_channels, n_times = data.shape
-        print(f"  - Extraction des caractéristiques pour {n_epochs} époques x {n_channels} canaux...")
-        
-        # 6. Préparer les arguments pour le traitement parallèle
+        # 5. Préparer les arguments pour le traitement parallèle
         args_list = []
         for i in range(n_epochs):
             ch_ref = data[i, 0] if n_channels > 0 else None
             position_norm = i / n_epochs
             
             for j in range(n_channels):
-                args_list.append((data[i, j], sf, bands, ch_ref, position_norm))
+                args_list.append((data[i, j], sfreq, bands, ch_ref, position_norm))
         
-        # 7. Traitement parallèle des canaux
+        # 7. Traitement des canaux (séquentiel pour GPU, parallèle pour CPU)
         features_list = []
-        num_workers = min(4, psutil.cpu_count(logical=False))
         
         try:
-            with concurrent.futures.ProcessPoolExecutor(max_workers=num_workers) as executor:
-                features_list = list(tqdm(
-                    executor.map(process_channel_wrapper, args_list),
-                    total=len(args_list),
-                    desc="  - Extraction des features",
-                    leave=False,
-                    mininterval=5.0  # Mettre à jour la barre de progression toutes les 5 secondes
-                ))
-            
+            if USE_GPU:
+                # Exécution séquentielle pour le GPU (plus stable avec CUDA)
+                logger.info("  ⚠️  Mode GPU activé - Traitement séquentiel pour stabilité")
+                for args in tqdm(args_list, 
+                              desc="  - Extraction des features (GPU)",
+                              leave=False,
+                              mininterval=5.0):
+                    try:
+                        features_list.append(process_channel(*args))
+                    except Exception as e:
+                        logger.warning(f"\n⚠️ Erreur lors du traitement d'un canal: {e}")
+                        features_list.append([0.0] * 20)  # Taille par défaut
+            else:
+                # Exécution parallèle pour le CPU
+                num_workers = min(psutil.cpu_count(logical=False), psutil.cpu_count(logical=False)) * 2
+                with concurrent.futures.ThreadPoolExecutor(max_workers=num_workers) as executor:
+                    futures = [executor.submit(process_channel, *args) for args in args_list]
+                    
+                    for future in tqdm(concurrent.futures.as_completed(futures), 
+                                     total=len(futures),
+                                     desc="  - Extraction des features (CPU)",
+                                     leave=False,
+                                     mininterval=5.0):
+                        try:
+                            features_list.append(future.result())
+                        except Exception as e:
+                            logger.warning(f"\n⚠️ Erreur lors du traitement d'un canal: {e}")
+                            features_list.append([0.0] * 20)  # Taille par défaut
+                
             if not features_list:
-                print("  ❌ Aucune feature extraite")
+                logger.error("  ❌ Aucune feature extraite")
                 return pd.DataFrame()
                 
         except Exception as e:
-            print(f"  ❌ Erreur lors de l'extraction des features: {str(e)}")
+            logger.error(f"  ❌ Erreur lors de l'extraction des features: {str(e)}")
             return pd.DataFrame()
             
         # 8. Préparation des données pour le clustering
         try:
-            print("  - Préparation des données pour le clustering...")
+            logger.info("  - Préparation des données pour le clustering...")
             X = np.array(features_list)
             
             # Vérifier les NaN/Inf
             if np.isnan(X).any() or np.isinf(X).any():
-                print("  - Remplacement des valeurs NaN/Inf...")
+                logger.info("  - Remplacement des valeurs NaN/Inf...")
                 X = np.nan_to_num(X, nan=0.0, posinf=0.0, neginf=0.0)
             
             # Normalisation
-            print("  - Normalisation des données...")
+            logger.info("  - Normalisation des données...")
             scaler = StandardScaler()
             X_scaled = scaler.fit_transform(X)
             
@@ -322,15 +532,16 @@ def process_single_psg_file(psg_path):
             
             # Vérifier la dimension finale
             if X_reshaped.shape[1] == 0:
-                print("  ❌ Aucune feature valide après préparation")
+                logger.error("  ❌ Aucune feature valide après préparation")
                 return pd.DataFrame()
                 
         except Exception as e:
-            print(f"  ❌ Erreur lors de la préparation des données: {str(e)}")
+            logger.error(f"  ❌ Erreur lors de la préparation des données: {str(e)}")
             return pd.DataFrame()
         
         # 9. Benchmarking des méthodes de réduction de dimension et de clustering
-        print("  - Démarrage du benchmark...")
+        logger.info("  - Démarrage du benchmark...")
+        results = []  # Initialisation de la liste des résultats
         
         # Configurations à tester
         reducers = [
@@ -349,7 +560,7 @@ def process_single_psg_file(psg_path):
         # Boucle sur les configurations
         for reducer_name, reducer in reducers:
             try:
-                print(f"\n  - Test de {reducer_name}...")
+                logger.info(f"\n  - Test de {reducer_name}...")
                 
                 # Appliquer la réduction de dimension
                 if reducer_name == 'None':
@@ -364,7 +575,7 @@ def process_single_psg_file(psg_path):
                         else:
                             X_transformed = reducer.fit_transform(X_reshaped)
                     except Exception as e:
-                        print(f"    ❌ Erreur avec {reducer_name}: {str(e)}")
+                        logger.error(f"    ❌ Erreur avec {reducer_name}: {str(e)}")
                         continue
                 
                 nb_clusters_with_valid_labels = 0
@@ -372,7 +583,7 @@ def process_single_psg_file(psg_path):
                 # Boucle sur les méthodes de clustering
                 for clusterer_name, clusterer_factory in clusterers:
                     try:
-                        print(f"    - Test de {clusterer_name}...", end=' ')
+                        logger.info(f"    - Test de {clusterer_name}...", end=' ')
                         
                         # Entraîner le modèle de clustering
                         clusterer = clusterer_factory()
@@ -392,7 +603,7 @@ def process_single_psg_file(psg_path):
                         
                         # Calculer les métriques
                         metrics = {
-                            'psg_file': psg_name,
+                            'psg_file': psg_filename,
                             'reducer': reducer_name,
                             'clusterer': clusterer_name,
                             'n_clusters': len(np.unique(labels[labels >= 0])),
@@ -406,7 +617,7 @@ def process_single_psg_file(psg_path):
                                 metrics['calinski_harabasz'] = calinski_harabasz_score(X_transformed, labels)
                                 metrics['davies_bouldin'] = davies_bouldin_score(X_transformed, labels)
                             except Exception as e:
-                                print(f"⚠️ Erreur métriques: {str(e)}")
+                                logger.error(f"Erreur métriques: {str(e)}")
                         
                         # Métriques par rapport aux annotations
                         if true_labels is not None and len(true_labels) == len(labels):
@@ -429,62 +640,74 @@ def process_single_psg_file(psg_path):
                                                 bincount = np.bincount(valid_true_in_cluster)
                                                 majority_label = np.argmax(bincount)
                                                 cluster_to_label[cluster] = majority_label
-                                            else:
-                                                cluster_to_label[cluster] = -1
 
-
-                                            # Logging détaillé
-                                            label_counts = np.bincount(valid_true_in_cluster)
-                                            print(f"    📊 Cluster {cluster}: {total_in_cluster} samples (valid: {valid_count}), "
-                                                f"majority label = {majority_label} ({label_counts[majority_label]} samples)")
-                                            nb_clusters_with_valid_labels += 1
-
+                                                # Logging détaillé
+                                                label_counts = np.bincount(valid_true_in_cluster)
+                                                logger.debug(f"Cluster {cluster}: {valid_count}/{total_in_cluster} labels valides")
+                                                logger.debug(f"  Répartition: {dict(zip(np.nonzero(label_counts)[0], label_counts[label_counts > 0]))}")
+                                                logger.debug(f"  Label majoritaire: {majority_label} ({(np.max(bincount) / valid_count)*100:.1f}%)")
                                         except Exception as e:
-                                            print(f"⚠️ Erreur lors du calcul du label majoritaire pour le cluster {cluster}: {e}")
+                                            logger.warning(f"Erreur lors du calcul du label majoritaire pour le cluster {cluster}: {e}")
                                             cluster_to_label[cluster] = -1
                                     else:
-                                        print(f"ℹ️ Cluster {cluster}: {total_in_cluster} samples (aucun label valide — ignoré dans l'évaluation)")
                                         cluster_to_label[cluster] = -1
-                                        nb_clusters_without_valid_labels += 1
-
-
-                                # Appliquer le mapping pour obtenir les labels prédits
-                                predicted_labels = np.array([cluster_to_label.get(cluster, -1) for cluster in labels])
-                                 
-                                # Calculer la pureté
-                                valid_mask = (predicted_labels >= 0) & (true_labels >= 0)
+                                        
+                                # Prédire les labels pour tous les points
+                                predicted_labels = np.full_like(labels, -1)
+                                for cluster, label in cluster_to_label.items():
+                                    predicted_labels[labels == cluster] = label
+                                
+                                # Calculer la pureté (uniquement sur les points avec des vrais labels)
+                                valid_mask = (true_labels >= 0) & (predicted_labels >= 0)
                                 if np.any(valid_mask):
-                                    purity = np.mean(predicted_labels[valid_mask] == true_labels[valid_mask])
-                                    metrics['purity'] = purity
+                                    correct = np.sum(true_labels[valid_mask] == predicted_labels[valid_mask])
+                                    total = np.sum(valid_mask)
+                                    metrics['purity'] = correct / total
+                                    metrics['n_valid_pairs'] = total
                                     
-                                    # Matrice de confusion
-                                    cm = confusion_matrix(true_labels[valid_mask], predicted_labels[valid_mask])
-                                    metrics['confusion_matrix'] = str(cm.tolist())
+                                    # Calculer la matrice de confusion
+                                    conf_matrix = confusion_matrix(
+                                        true_labels[valid_mask], 
+                                        predicted_labels[valid_mask],
+                                        labels=np.unique(true_labels[valid_mask])
+                                    )
+                                    metrics['confusion_matrix'] = conf_matrix
+                                    
+                                    # Log des informations de pureté
+                                    logger.info(f"Purity: {metrics['purity']:.3f} ({correct}/{total} points corrects)")
+                                    logger.debug("Matrice de confusion:\n%s", conf_matrix)
                                     
                             except Exception as e:
-                                print(f"⚠️ Erreur calcul métriques annotations: {str(e)}")
+                                logger.error(f"Erreur lors du calcul de la pureté: {e}", exc_info=True)
                         
                         results.append(metrics)
-                        print("✓")
+                        logger.info(f"{clusterer_name} terminé avec {metrics['n_clusters']} clusters")
                         
                     except Exception as e:
-                        print(f"❌ Erreur avec {clusterer_name}: {str(e)}")
+                        logger.error(f"Erreur avec {clusterer_name}: {e}", exc_info=True)
                         continue
-
-                print(f"\n📊 Résumé {psg_name}:")
-                print(f"  Clusters avec label valide: {nb_clusters_with_valid_labels} / {len(unique_clusters)}")
-                print(f"  Clusters ignorés (aucun label valide): {nb_clusters_without_valid_labels}\n")
-                
-            except Exception as e:
-                print(f"  ❌ Erreur majeure avec {reducer_name}: {str(e)}")
-                continue
+                        
+        except Exception as e:
+            logger.error(f"Erreur lors du benchmark: {e}", exc_info=True)
+            return pd.DataFrame()
         
-        return pd.DataFrame(results)
+        # Créer un DataFrame avec les résultats
+        if not results:
+            logger.error("Aucun résultat à enregistrer")
+            return pd.DataFrame()
+            
+        results_df = pd.DataFrame(results)
+        results_df['subject_id'] = subject_id
+        results_df['psg_file'] = psg_filename
+        
+        # Enregistrer les résultats
+        results_df.to_csv(OUTPUT_CSV, mode='a', header=not os.path.exists(OUTPUT_CSV), index=False)
+        logger.info(f"Résultats enregistrés dans {OUTPUT_CSV}")
+        
+        return results_df
         
     except Exception as e:
-        print(f"\n❌ ERREUR CRITIQUE lors du traitement de {psg_name}: {str(e)}")
-        import traceback
-        traceback.print_exc()
+        logger.critical(f"ERREUR CRITIQUE lors du traitement de {psg_filename}: {str(e)}", exc_info=True)
         return pd.DataFrame()
 
 def process_channel_wrapper(args):
@@ -496,36 +719,52 @@ def main():
     os.makedirs(os.path.dirname(OUTPUT_CSV) or '.', exist_ok=True)
     
     # Lister les fichiers PSG
-    psg_files = sorted(glob.glob(os.path.join(PSG_DIR, "*-PSG.edf")))
-    print(f"Fichiers PSG trouvés: {len(psg_files)}")
-    
+    psg_files = glob.glob(os.path.join(PSG_DIR, '*-PSG.edf'))
     if not psg_files:
-        print("Aucun fichier PSG trouvé.")
+        print(f"Aucun fichier PSG trouvé dans {PSG_DIR}")
         return
-    
-    # Traitement parallèle des fichiers
-    results = []
-    cpu_count = max(1, multiprocessing.cpu_count())  # Laisser un coeur libre
-    
-    print(f"\nDémarrage du traitement parallèle sur {cpu_count} cœurs...")
-    
-    with ProcessPoolExecutor(max_workers=cpu_count) as executor:
-        # Soumettre toutes les tâches
-        futures = {executor.submit(process_single_psg_file, psg_file): psg_file 
-                  for psg_file in psg_files}
         
-        # Suivi de la progression
-        for future in tqdm(concurrent.futures.as_completed(futures), total=len(futures), 
-                          desc="Traitement des fichiers"):
-            psg_file = futures[future]
-            try:
-                result = future.result()
-                if not result.empty:
-                    results.append(result)
-            except Exception as e:
-                print(f"Erreur lors du traitement de {psg_file}: {str(e)}")
+    print(f"Traitement de {len(psg_files)} fichiers PSG...")
     
-        # Fusionner et sauvegarder les résultats
+    # Limiter le nombre de fichiers pour les tests
+    # psg_files = psg_files[:1]  # Décommenter pour tester avec un seul fichier
+    
+    # Configuration du traitement parallèle
+    max_psg_workers = min(psutil.cpu_count(logical=False), 4)  # Maximum 4 workers pour GPU
+    logger.info(f"Lancement du traitement parallèle sur {max_psg_workers} PSG en parallèle")
+    
+    results = []
+    
+    try:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_psg_workers) as executor:
+            # Soumettre toutes les tâches
+            future_to_psg = {
+                executor.submit(process_single_psg_file, psg_file): psg_file 
+                for psg_file in psg_files
+            }
+            
+            # Traiter les résultats au fur et à mesure
+            for future in tqdm(
+                concurrent.futures.as_completed(future_to_psg),
+                total=len(psg_files),
+                desc="Traitement des fichiers PSG",
+                unit="fichier"
+            ):
+                psg_file = future_to_psg[future]
+                try:
+                    result = future.result()
+                    if not result.empty:
+                        results.append(result)
+                        # Sauvegarder les résultats de manière incrémentielle
+                        pd.concat(results).to_csv(OUTPUT_CSV, index=False)
+                        logger.debug(f"Résultats sauvegardés pour {os.path.basename(psg_file)}")
+                except Exception as e:
+                    logger.error(f"Erreur lors du traitement de {os.path.basename(psg_file)}: {str(e)}", 
+                               exc_info=True)
+    except Exception as e:
+        logger.critical("Erreur critique dans le traitement parallèle", exc_info=True)
+        raise
+            
     if results:
         final_df = pd.concat(results, ignore_index=True)
         final_df.to_csv(OUTPUT_CSV, index=False)
