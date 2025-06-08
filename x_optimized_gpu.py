@@ -113,71 +113,59 @@ bands = {
 
 def process_channel(ch, sf, bands, ch_ref=None, position_norm=None):
     """Extrait les caractéristiques d'un canal EEG avec support GPU via CuPy."""
-    # Calculer la taille attendue du vecteur de caractéristiques
-    expected_size = 6 + len(bands) + 3 + (1 if position_norm is not None else 0)
-    
     # Désactiver temporairement les logs pour les performances
     with SuppressOutput():
         # Validation et conversion des données d'entrée
         try:
             # Convertir en array numpy et forcer le type float32
-            ch = np.asarray(ch, dtype=np.float32, order='C').flatten()
+            ch = np.asarray(ch, dtype=np.float32).flatten()
             if ch.ndim != 1 or len(ch) == 0 or np.all(np.isnan(ch)):
                 logger.warning(f"Canal invalide: ndim={ch.ndim}, shape={ch.shape}, nans={np.all(np.isnan(ch))}")
-                return [0.0] * expected_size
+                raise ValueError("Canal invalide")
                 
             # Si la référence est fournie, la valider aussi
             if ch_ref is not None:
-                ch_ref = np.asarray(ch_ref, dtype=np.float32, order='C').flatten()
+                ch_ref = np.asarray(ch_ref, dtype=np.float32).flatten()
                 if ch_ref.ndim != 1 or len(ch_ref) != len(ch) or np.all(np.isnan(ch_ref)):
                     logger.debug("Référence invalide, utilisation de None")
                     ch_ref = None
                     
         except Exception as e:
             logger.error(f"Erreur de validation des données d'entrée: {e}", exc_info=True)
+            expected_size = 6 + len(bands) + 3 + (1 if position_norm is not None else 0)
             return [0.0] * expected_size
     
-    # Initialisation des variables
-    ch_xp = None
-    ch_ref_xp = None
-    xp = np  # Par défaut, utiliser numpy
-    sf_xp = float(sf)
-    
-    # Gestion du contexte GPU
+    # Forcer l'initialisation du contexte CUDA si nécessaire
     if USE_GPU:
         try:
-            # Initialiser le contexte CUDA
-            cp.cuda.Device(0).use()
-            
-            # Allouer la mémoire GPU
-            with cp.cuda.Device(0):
-                # Convertir les données en tenseurs GPU
-                ch_xp = cp.asarray(ch, dtype=cp.float32, order='C')
-                ch_ref_xp = cp.asarray(ch_ref, dtype=cp.float32, order='C') if ch_ref is not None else None
-                
-                # Vérifier l'allocation mémoire
-                mem_info = cp.cuda.runtime.memGetInfo()
-                mem_used = (mem_info[1] - mem_info[0]) / (1024 ** 3)  # En Go
-                if mem_used > 0.9 * (mem_info[1] / (1024 ** 3)):  # Si plus de 90% de la mémoire utilisée
-                    logger.warning(f"Mémoire GPU utilisée à {mem_used:.2f} Go, libération de la mémoire")
-                    cp.get_default_memory_pool().free_all_blocks()
-                
-                xp = cp
-                signal = cusignal
-                
+            cp.cuda.Device(0).use()  # Force l'initialisation du device GPU
         except Exception as e:
-            logger.warning(f"Erreur d'initialisation GPU, basculement sur CPU: {e}")
-            USE_GPU = False
+            print(f"Avertissement: Impossible d'initialiser le GPU: {e}")
+            return [0.0] * (6 + len(bands) + 3 + (1 if position_norm is not None else 0))
     
-    # Si GPU non disponible ou erreur d'initialisation, utiliser CPU
-    if not USE_GPU or ch_xp is None:
+    # Préparer les données avec le bon type et sur le bon device
+    if USE_GPU:
         try:
-            ch_xp = np.asarray(ch, dtype=np.float32, order='C')
-            ch_ref_xp = np.asarray(ch_ref, dtype=np.float32, order='C') if ch_ref is not None else None
-            from scipy import signal
+            # Conversion explicite et copie pour assurer la contigüité
+            ch_xp = cp.asarray(ch, dtype=cp.float32).copy()
+            ch_ref_xp = cp.asarray(ch_ref, dtype=cp.float32).copy() if ch_ref is not None else None
+            xp = cp
+            signal = cusignal
+            # Convertir la fréquence d'échantillonnage en float natif
+            sf_xp = float(sf)
         except Exception as e:
-            logger.error(f"Erreur préparation données CPU: {e}")
-            return [0.0] * expected_size
+            print(f"Erreur lors de la préparation des données GPU: {e}")
+            return [0.0] * (6 + len(bands) + 3 + (1 if position_norm is not None else 0))
+    else:
+        try:
+            ch_xp = np.asarray(ch, dtype=np.float32)
+            ch_ref_xp = np.asarray(ch_ref, dtype=np.float32) if ch_ref is not None else None
+            xp = np
+            from scipy import signal
+            sf_xp = float(sf)
+        except Exception as e:
+            print(f"Erreur lors de la préparation des données CPU: {e}")
+            return [0.0] * (6 + len(bands) + 3 + (1 if position_norm is not None else 0))
     
     features = []
     
@@ -324,6 +312,7 @@ def load_edf_with_annotations(psg_path, hypnogram_path, epoch_length=30.0):
     import numpy as np
     
     # Charger le PSG
+    import io
     raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
     sfreq = raw.info['sfreq']
     n_samples = raw.n_times
@@ -509,52 +498,15 @@ def process_single_psg_file(psg_path):
             if USE_GPU:
                 # Exécution séquentielle pour le GPU (plus stable avec CUDA)
                 logger.info("  ⚠️  Mode GPU activé - Traitement séquentiel pour stabilité")
-                
-                # Nettoyage initial de la mémoire GPU
-                if GPU_AVAILABLE:
+                for args in tqdm(args_list, 
+                              desc="  - Extraction des features (GPU)",
+                              leave=False,
+                              mininterval=5.0):
                     try:
-                        import cupy as cp
-                        cp.get_default_memory_pool().free_all_blocks()
-                        cp.cuda.Device(0).synchronize()
-                    except Exception as gpu_err:
-                        logger.warning(f"Erreur lors du nettoyage initial GPU: {gpu_err}")
-                
-                # Traitement des canaux avec gestion de la mémoire
-                batch_size = 10  # Traiter par lots pour libérer périodiquement la mémoire
-                for i in tqdm(range(0, len(args_list), batch_size),
-                            desc="  - Extraction des features (GPU)",
-                            leave=False,
-                            mininterval=5.0):
-                    batch_args = args_list[i:i + batch_size]
-                    batch_features = []
-                    
-                    try:
-                        # Traiter le lot actuel
-                        for args in batch_args:
-                            try:
-                                batch_features.append(process_channel(*args))
-                            except Exception as e:
-                                logger.warning(f"Erreur traitement canal: {e}")
-                                batch_features.append([0.0] * 20)  # Taille par défaut
-                        
-                        # Ajouter les résultats du lot
-                        features_list.extend(batch_features)
-                        
-                        # Nettoyage périodique de la mémoire GPU
-                        if GPU_AVAILABLE and i % (batch_size * 2) == 0:
-                            try:
-                                import cupy as cp
-                                cp.get_default_memory_pool().free_all_blocks()
-                                cp.cuda.Device(0).synchronize()
-                                import gc
-                                gc.collect()
-                            except Exception as gpu_err:
-                                logger.warning(f"Erreur nettoyage périodique GPU: {gpu_err}")
-                                
-                    except Exception as batch_error:
-                        logger.error(f"Erreur dans le traitement par lots: {batch_error}")
-                        # En cas d'erreur, ajouter des valeurs par défaut pour ce lot
-                        features_list.extend([[0.0] * 20] * len(batch_args))
+                        features_list.append(process_channel(*args))
+                    except Exception as e:
+                        logger.warning(f"\n⚠️ Erreur lors du traitement d'un canal: {e}")
+                        features_list.append([0.0] * 20)  # Taille par défaut
             else:
                 # Exécution parallèle pour le CPU
                 num_workers = min(psutil.cpu_count(logical=False), psutil.cpu_count(logical=False)) * 2
@@ -802,17 +754,13 @@ def main():
     results = []
     
     if USE_GPU:
-        # Mode hybride CPU + GPU → ThreadPoolExecutor pour paralléliser le preprocessing
+        # Mode hybride CPU + GPU → ThreadPoolExecutor pour paralléliser le préprocessing
         logger.info("⚠️  Mode GPU hybride : ThreadPool CPU pour chargement + process_channel GPU séquentiel")
         
         from concurrent.futures import ThreadPoolExecutor, as_completed
-        import gc
 
         try:
-            # Limiter le nombre de workers pour éviter la surcharge GPU
-            num_workers = min(4, psutil.cpu_count(logical=False))
-            
-            with ThreadPoolExecutor(max_workers=num_workers) as executor:
+            with ThreadPoolExecutor(max_workers=4) as executor:
                 futures = []
                 for psg_file in psg_files:
                     futures.append(executor.submit(process_single_psg_file, psg_file))
@@ -826,40 +774,12 @@ def main():
                             # Sauvegarde incrémentielle
                             pd.concat(results).to_csv(OUTPUT_CSV, index=False)
                             logger.debug("Résultats sauvegardés")
-                            
-                            # Nettoyage de la mémoire GPU après chaque fichier
-                            if GPU_AVAILABLE:
-                                try:
-                                    import cupy as cp
-                                    cp.get_default_memory_pool().free_all_blocks()
-                                    cp.cuda.Device(0).synchronize()
-                                except Exception as gpu_err:
-                                    logger.warning(f"Erreur lors du nettoyage GPU: {gpu_err}")
-                            
-                            # Forcer le garbage collection
-                            gc.collect()
-                            
                     except Exception as e:
                         logger.error(f"Erreur lors du traitement d'un fichier PSG: {str(e)}", exc_info=True)
                         continue
-                        
-                    # Nettoyage périodique
-                    if len(results) % 5 == 0:
-                        gc.collect()
 
         except Exception as e:
             logger.critical("Erreur critique dans le traitement hybride", exc_info=True)
-            
-            # Nettoyage en cas d'erreur
-            if GPU_AVAILABLE:
-                try:
-                    import cupy as cp
-                    cp.get_default_memory_pool().free_all_blocks()
-                    cp.cuda.Device(0).synchronize()
-                except:
-                    pass
-                    
-            gc.collect()
             raise
         
     else:

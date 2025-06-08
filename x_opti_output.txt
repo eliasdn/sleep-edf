@@ -1,0 +1,2292 @@
+2025-06-08 17:14:25.604044: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1749402865.627353   29691 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1749402865.634040   29691 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-06-08 17:14:25.657003: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/usr/local/lib/python3.11/dist-packages/cupyx/jit/_interface.py:173: FutureWarning: cupyx.jit.rawkernel is experimental. The interface can change in the future.
+  cupy._util.experimental('cupyx.jit.rawkernel')
+Traitement de 152 fichiers PSG...
+2025-06-08 17:14:33,979 - __main__ - INFO - ⚠️  Mode GPU hybride : ThreadPool CPU pour chargement + process_channel GPU séquentiel
+2025-06-08 17:14:33,980 - __main__ - INFO - Début du traitement du fichier: SC4001E0-PSG.edf
+2025-06-08 17:14:33,980 - __main__ - INFO - Début du traitement du fichier: SC4002E0-PSG.edf
+2025-06-08 17:14:33,981 - __main__ - INFO - Début du traitement du fichier: SC4011E0-PSG.edf
+2025-06-08 17:14:33,981 - __main__ - INFO - Début du traitement du fichier: SC4012E0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):   0% 0/152 [00:00<?, ?fichier/s]2025-06-08 17:14:33,987 - __main__ - INFO - Fichier hypnogramme trouvé: SC4011EH-Hypnogram.edf
+2025-06-08 17:14:33,989 - __main__ - INFO - Fichier hypnogramme trouvé: SC4001EC-Hypnogram.edf
+2025-06-08 17:14:33,990 - __main__ - INFO - Fichier hypnogramme trouvé: SC4002EC-Hypnogram.edf
+2025-06-08 17:14:33,990 - __main__ - INFO - Fichier hypnogramme trouvé: SC4012EC-Hypnogram.edf
+2025-06-08 17:14:34,136 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):   1% 1/152 [00:00<00:24,  6.24fichier/s]2025-06-08 17:14:34,143 - __main__ - INFO - Début du traitement du fichier: SC4021E0-PSG.edf
+2025-06-08 17:14:34,146 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,151 - __main__ - INFO - Début du traitement du fichier: SC4022E0-PSG.edf
+2025-06-08 17:14:34,152 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,158 - __main__ - INFO - Début du traitement du fichier: SC4031E0-PSG.edf
+2025-06-08 17:14:34,158 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,164 - __main__ - INFO - Début du traitement du fichier: SC4032E0-PSG.edf
+2025-06-08 17:14:34,166 - __main__ - INFO - Fichier hypnogramme trouvé: SC4021EH-Hypnogram.edf
+2025-06-08 17:14:34,167 - __main__ - INFO - Fichier hypnogramme trouvé: SC4022EJ-Hypnogram.edf
+2025-06-08 17:14:34,168 - __main__ - INFO - Fichier hypnogramme trouvé: SC4031EC-Hypnogram.edf
+2025-06-08 17:14:34,169 - __main__ - INFO - Fichier hypnogramme trouvé: SC4032EP-Hypnogram.edf
+2025-06-08 17:14:34,357 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,362 - __main__ - INFO - Début du traitement du fichier: SC4041E0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):   3% 5/152 [00:00<00:10, 14.21fichier/s]2025-06-08 17:14:34,363 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,367 - __main__ - INFO - Début du traitement du fichier: SC4042E0-PSG.edf
+2025-06-08 17:14:34,367 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,368 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,372 - __main__ - INFO - Début du traitement du fichier: SC4051E0-PSG.edf
+2025-06-08 17:14:34,376 - __main__ - INFO - Début du traitement du fichier: SC4052E0-PSG.edf
+2025-06-08 17:14:34,379 - __main__ - INFO - Fichier hypnogramme trouvé: SC4041EC-Hypnogram.edf
+2025-06-08 17:14:34,380 - __main__ - INFO - Fichier hypnogramme trouvé: SC4042EC-Hypnogram.edf
+2025-06-08 17:14:34,381 - __main__ - INFO - Fichier hypnogramme trouvé: SC4051EC-Hypnogram.edf
+2025-06-08 17:14:34,382 - __main__ - INFO - Fichier hypnogramme trouvé: SC4052EC-Hypnogram.edf
+2025-06-08 17:14:34,535 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,540 - __main__ - INFO - Début du traitement du fichier: SC4061E0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):   6% 9/152 [00:00<00:08, 17.80fichier/s]2025-06-08 17:14:34,542 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,547 - __main__ - INFO - Début du traitement du fichier: SC4062E0-PSG.edf
+2025-06-08 17:14:34,548 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,552 - __main__ - INFO - Début du traitement du fichier: SC4071E0-PSG.edf
+2025-06-08 17:14:34,553 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,557 - __main__ - INFO - Début du traitement du fichier: SC4072E0-PSG.edf
+2025-06-08 17:14:34,561 - __main__ - INFO - Fichier hypnogramme trouvé: SC4071EC-Hypnogram.edf
+2025-06-08 17:14:34,562 - __main__ - INFO - Fichier hypnogramme trouvé: SC4062EC-Hypnogram.edf
+2025-06-08 17:14:34,562 - __main__ - INFO - Fichier hypnogramme trouvé: SC4061EC-Hypnogram.edf
+2025-06-08 17:14:34,563 - __main__ - INFO - Fichier hypnogramme trouvé: SC4072EH-Hypnogram.edf
+2025-06-08 17:14:34,711 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,717 - __main__ - INFO - Début du traitement du fichier: SC4081E0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):   9% 13/152 [00:00<00:07, 19.64fichier/s]2025-06-08 17:14:34,717 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,718 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,722 - __main__ - INFO - Début du traitement du fichier: SC4082E0-PSG.edf
+2025-06-08 17:14:34,722 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,726 - __main__ - INFO - Début du traitement du fichier: SC4091E0-PSG.edf
+2025-06-08 17:14:34,730 - __main__ - INFO - Début du traitement du fichier: SC4092E0-PSG.edf
+2025-06-08 17:14:34,733 - __main__ - INFO - Fichier hypnogramme trouvé: SC4081EC-Hypnogram.edf
+2025-06-08 17:14:34,734 - __main__ - INFO - Fichier hypnogramme trouvé: SC4082EP-Hypnogram.edf
+2025-06-08 17:14:34,735 - __main__ - INFO - Fichier hypnogramme trouvé: SC4091EC-Hypnogram.edf
+2025-06-08 17:14:34,736 - __main__ - INFO - Fichier hypnogramme trouvé: SC4092EC-Hypnogram.edf
+2025-06-08 17:14:34,887 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,891 - __main__ - INFO - Début du traitement du fichier: SC4101E0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  11% 17/152 [00:00<00:06, 20.78fichier/s]2025-06-08 17:14:34,892 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,898 - __main__ - INFO - Début du traitement du fichier: SC4102E0-PSG.edf
+2025-06-08 17:14:34,899 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,904 - __main__ - INFO - Début du traitement du fichier: SC4111E0-PSG.edf
+2025-06-08 17:14:34,904 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:34,908 - __main__ - INFO - Début du traitement du fichier: SC4112E0-PSG.edf
+2025-06-08 17:14:34,911 - __main__ - INFO - Fichier hypnogramme trouvé: SC4101EC-Hypnogram.edf
+2025-06-08 17:14:34,912 - __main__ - INFO - Fichier hypnogramme trouvé: SC4102EC-Hypnogram.edf
+2025-06-08 17:14:34,913 - __main__ - INFO - Fichier hypnogramme trouvé: SC4111EC-Hypnogram.edf
+2025-06-08 17:14:34,914 - __main__ - INFO - Fichier hypnogramme trouvé: SC4112EC-Hypnogram.edf
+2025-06-08 17:14:35,061 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,066 - __main__ - INFO - Début du traitement du fichier: SC4121E0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  14% 21/152 [00:01<00:06, 21.49fichier/s]2025-06-08 17:14:35,066 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,071 - __main__ - INFO - Début du traitement du fichier: SC4122E0-PSG.edf
+2025-06-08 17:14:35,072 - __main__ - INFO - Fichier hypnogramme trouvé: SC4121EC-Hypnogram.edf
+2025-06-08 17:14:35,072 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,073 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,078 - __main__ - INFO - Début du traitement du fichier: SC4131E0-PSG.edf
+2025-06-08 17:14:35,081 - __main__ - INFO - Début du traitement du fichier: SC4141E0-PSG.edf
+2025-06-08 17:14:35,083 - __main__ - INFO - Fichier hypnogramme trouvé: SC4122EV-Hypnogram.edf
+2025-06-08 17:14:35,087 - __main__ - INFO - Fichier hypnogramme trouvé: SC4131EC-Hypnogram.edf
+2025-06-08 17:14:35,089 - __main__ - INFO - Fichier hypnogramme trouvé: SC4141EU-Hypnogram.edf
+2025-06-08 17:14:35,238 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,244 - __main__ - INFO - Début du traitement du fichier: SC4142E0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  16% 25/152 [00:01<00:05, 21.81fichier/s]2025-06-08 17:14:35,245 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,249 - __main__ - INFO - Début du traitement du fichier: SC4151E0-PSG.edf
+2025-06-08 17:14:35,250 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,250 - __main__ - INFO - Fichier hypnogramme trouvé: SC4142EU-Hypnogram.edf
+2025-06-08 17:14:35,254 - __main__ - INFO - Début du traitement du fichier: SC4152E0-PSG.edf
+2025-06-08 17:14:35,255 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,259 - __main__ - INFO - Début du traitement du fichier: SC4161E0-PSG.edf
+2025-06-08 17:14:35,261 - __main__ - INFO - Fichier hypnogramme trouvé: SC4151EC-Hypnogram.edf
+2025-06-08 17:14:35,262 - __main__ - INFO - Fichier hypnogramme trouvé: SC4152EC-Hypnogram.edf
+2025-06-08 17:14:35,263 - __main__ - INFO - Fichier hypnogramme trouvé: SC4161EC-Hypnogram.edf
+2025-06-08 17:14:35,405 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,411 - __main__ - INFO - Début du traitement du fichier: SC4162E0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  19% 29/152 [00:01<00:05, 22.45fichier/s]2025-06-08 17:14:35,412 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,417 - __main__ - INFO - Début du traitement du fichier: SC4171E0-PSG.edf
+2025-06-08 17:14:35,419 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,423 - __main__ - INFO - Début du traitement du fichier: SC4172E0-PSG.edf
+2025-06-08 17:14:35,424 - __main__ - INFO - Fichier hypnogramme trouvé: SC4162EC-Hypnogram.edf
+2025-06-08 17:14:35,424 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,428 - __main__ - INFO - Début du traitement du fichier: SC4181E0-PSG.edf
+2025-06-08 17:14:35,430 - __main__ - INFO - Fichier hypnogramme trouvé: SC4171EU-Hypnogram.edf
+2025-06-08 17:14:35,431 - __main__ - INFO - Fichier hypnogramme trouvé: SC4172EC-Hypnogram.edf
+2025-06-08 17:14:35,432 - __main__ - INFO - Fichier hypnogramme trouvé: SC4181EC-Hypnogram.edf
+2025-06-08 17:14:35,543 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  22% 33/152 [00:01<00:04, 24.29fichier/s]2025-06-08 17:14:35,547 - __main__ - INFO - Début du traitement du fichier: SC4182E0-PSG.edf
+2025-06-08 17:14:35,548 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,552 - __main__ - INFO - Début du traitement du fichier: SC4191E0-PSG.edf
+2025-06-08 17:14:35,553 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,556 - __main__ - INFO - Début du traitement du fichier: SC4192E0-PSG.edf
+2025-06-08 17:14:35,557 - __main__ - INFO - Fichier hypnogramme trouvé: SC4182EC-Hypnogram.edf
+2025-06-08 17:14:35,559 - __main__ - INFO - Fichier hypnogramme trouvé: SC4191EP-Hypnogram.edf
+2025-06-08 17:14:35,559 - __main__ - INFO - Fichier hypnogramme trouvé: SC4192EV-Hypnogram.edf
+2025-06-08 17:14:35,624 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,630 - __main__ - INFO - Début du traitement du fichier: SC4201E0-PSG.edf
+2025-06-08 17:14:35,636 - __main__ - INFO - Fichier hypnogramme trouvé: SC4201EC-Hypnogram.edf
+2025-06-08 17:14:35,637 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,640 - __main__ - INFO - Début du traitement du fichier: SC4202E0-PSG.edf
+2025-06-08 17:14:35,644 - __main__ - INFO - Fichier hypnogramme trouvé: SC4202EC-Hypnogram.edf
+2025-06-08 17:14:35,706 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,710 - __main__ - INFO - Début du traitement du fichier: SC4211E0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  25% 38/152 [00:01<00:04, 26.24fichier/s]2025-06-08 17:14:35,712 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,717 - __main__ - INFO - Début du traitement du fichier: SC4212E0-PSG.edf
+2025-06-08 17:14:35,719 - __main__ - INFO - Fichier hypnogramme trouvé: SC4211EC-Hypnogram.edf
+2025-06-08 17:14:35,720 - __main__ - INFO - Fichier hypnogramme trouvé: SC4212EC-Hypnogram.edf
+2025-06-08 17:14:35,792 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,793 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,797 - __main__ - INFO - Début du traitement du fichier: SC4221E0-PSG.edf
+2025-06-08 17:14:35,803 - __main__ - INFO - Début du traitement du fichier: SC4222E0-PSG.edf
+2025-06-08 17:14:35,809 - __main__ - INFO - Fichier hypnogramme trouvé: SC4221EJ-Hypnogram.edf
+2025-06-08 17:14:35,810 - __main__ - INFO - Fichier hypnogramme trouvé: SC4222EC-Hypnogram.edf
+2025-06-08 17:14:35,888 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,892 - __main__ - INFO - Début du traitement du fichier: SC4231E0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  28% 42/152 [00:01<00:04, 24.87fichier/s]2025-06-08 17:14:35,892 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,897 - __main__ - INFO - Début du traitement du fichier: SC4232E0-PSG.edf
+2025-06-08 17:14:35,899 - __main__ - INFO - Fichier hypnogramme trouvé: SC4231EJ-Hypnogram.edf
+2025-06-08 17:14:35,899 - __main__ - INFO - Fichier hypnogramme trouvé: SC4232EV-Hypnogram.edf
+2025-06-08 17:14:35,960 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,966 - __main__ - INFO - Début du traitement du fichier: SC4241E0-PSG.edf
+2025-06-08 17:14:35,968 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:35,971 - __main__ - INFO - Début du traitement du fichier: SC4242E0-PSG.edf
+2025-06-08 17:14:35,974 - __main__ - INFO - Fichier hypnogramme trouvé: SC4241EC-Hypnogram.edf
+2025-06-08 17:14:35,975 - __main__ - INFO - Fichier hypnogramme trouvé: SC4242EA-Hypnogram.edf
+2025-06-08 17:14:36,048 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  30% 46/152 [00:02<00:04, 24.85fichier/s]2025-06-08 17:14:36,048 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,053 - __main__ - INFO - Début du traitement du fichier: SC4251E0-PSG.edf
+2025-06-08 17:14:36,056 - __main__ - INFO - Début du traitement du fichier: SC4252E0-PSG.edf
+2025-06-08 17:14:36,062 - __main__ - INFO - Fichier hypnogramme trouvé: SC4251EP-Hypnogram.edf
+2025-06-08 17:14:36,063 - __main__ - INFO - Fichier hypnogramme trouvé: SC4252EU-Hypnogram.edf
+2025-06-08 17:14:36,136 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,141 - __main__ - INFO - Début du traitement du fichier: SC4261F0-PSG.edf
+2025-06-08 17:14:36,142 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,145 - __main__ - INFO - Début du traitement du fichier: SC4262F0-PSG.edf
+2025-06-08 17:14:36,148 - __main__ - INFO - Fichier hypnogramme trouvé: SC4261FM-Hypnogram.edf
+2025-06-08 17:14:36,149 - __main__ - INFO - Fichier hypnogramme trouvé: SC4262FC-Hypnogram.edf
+2025-06-08 17:14:36,217 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,221 - __main__ - INFO - Début du traitement du fichier: SC4271F0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  33% 50/152 [00:02<00:04, 24.52fichier/s]2025-06-08 17:14:36,223 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,226 - __main__ - INFO - Début du traitement du fichier: SC4272F0-PSG.edf
+2025-06-08 17:14:36,229 - __main__ - INFO - Fichier hypnogramme trouvé: SC4271FC-Hypnogram.edf
+2025-06-08 17:14:36,230 - __main__ - INFO - Fichier hypnogramme trouvé: SC4272FM-Hypnogram.edf
+2025-06-08 17:14:36,285 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,289 - __main__ - INFO - Début du traitement du fichier: SC4281G0-PSG.edf
+2025-06-08 17:14:36,294 - __main__ - INFO - Fichier hypnogramme trouvé: SC4281GC-Hypnogram.edf
+2025-06-08 17:14:36,303 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,309 - __main__ - INFO - Début du traitement du fichier: SC4282G0-PSG.edf
+2025-06-08 17:14:36,315 - __main__ - INFO - Fichier hypnogramme trouvé: SC4282GC-Hypnogram.edf
+2025-06-08 17:14:36,372 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  36% 54/152 [00:02<00:03, 24.83fichier/s]2025-06-08 17:14:36,378 - __main__ - INFO - Début du traitement du fichier: SC4291G0-PSG.edf
+2025-06-08 17:14:36,384 - __main__ - INFO - Fichier hypnogramme trouvé: SC4291GA-Hypnogram.edf
+2025-06-08 17:14:36,398 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,404 - __main__ - INFO - Début du traitement du fichier: SC4292G0-PSG.edf
+2025-06-08 17:14:36,410 - __main__ - INFO - Fichier hypnogramme trouvé: SC4292GC-Hypnogram.edf
+2025-06-08 17:14:36,458 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,462 - __main__ - INFO - Début du traitement du fichier: SC4301E0-PSG.edf
+2025-06-08 17:14:36,467 - __main__ - INFO - Fichier hypnogramme trouvé: SC4301EC-Hypnogram.edf
+2025-06-08 17:14:36,490 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  38% 57/152 [00:02<00:03, 24.96fichier/s]2025-06-08 17:14:36,496 - __main__ - INFO - Début du traitement du fichier: SC4302E0-PSG.edf
+2025-06-08 17:14:36,502 - __main__ - INFO - Fichier hypnogramme trouvé: SC4302EV-Hypnogram.edf
+2025-06-08 17:14:36,534 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,539 - __main__ - INFO - Début du traitement du fichier: SC4311E0-PSG.edf
+2025-06-08 17:14:36,544 - __main__ - INFO - Fichier hypnogramme trouvé: SC4311EC-Hypnogram.edf
+2025-06-08 17:14:36,568 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,573 - __main__ - INFO - Début du traitement du fichier: SC4312E0-PSG.edf
+2025-06-08 17:14:36,579 - __main__ - INFO - Fichier hypnogramme trouvé: SC4312EM-Hypnogram.edf
+2025-06-08 17:14:36,610 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,614 - __main__ - INFO - Début du traitement du fichier: SC4321E0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  39% 60/152 [00:02<00:03, 25.04fichier/s]2025-06-08 17:14:36,621 - __main__ - INFO - Fichier hypnogramme trouvé: SC4321EC-Hypnogram.edf
+2025-06-08 17:14:36,648 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,653 - __main__ - INFO - Début du traitement du fichier: SC4322E0-PSG.edf
+2025-06-08 17:14:36,661 - __main__ - INFO - Fichier hypnogramme trouvé: SC4322EC-Hypnogram.edf
+2025-06-08 17:14:36,698 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,702 - __main__ - INFO - Début du traitement du fichier: SC4331F0-PSG.edf
+2025-06-08 17:14:36,707 - __main__ - INFO - Fichier hypnogramme trouvé: SC4331FV-Hypnogram.edf
+2025-06-08 17:14:36,745 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  41% 63/152 [00:02<00:03, 24.15fichier/s]2025-06-08 17:14:36,751 - __main__ - INFO - Début du traitement du fichier: SC4332F0-PSG.edf
+2025-06-08 17:14:36,757 - __main__ - INFO - Fichier hypnogramme trouvé: SC4332FC-Hypnogram.edf
+2025-06-08 17:14:36,790 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,796 - __main__ - INFO - Début du traitement du fichier: SC4341F0-PSG.edf
+2025-06-08 17:14:36,802 - __main__ - INFO - Fichier hypnogramme trouvé: SC4341FA-Hypnogram.edf
+2025-06-08 17:14:36,835 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,841 - __main__ - INFO - Début du traitement du fichier: SC4342F0-PSG.edf
+2025-06-08 17:14:36,847 - __main__ - INFO - Fichier hypnogramme trouvé: SC4342FA-Hypnogram.edf
+2025-06-08 17:14:36,906 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,912 - __main__ - INFO - Début du traitement du fichier: SC4351F0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  43% 66/152 [00:02<00:03, 22.30fichier/s]2025-06-08 17:14:36,918 - __main__ - INFO - Fichier hypnogramme trouvé: SC4351FA-Hypnogram.edf
+2025-06-08 17:14:36,940 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:36,944 - __main__ - INFO - Début du traitement du fichier: SC4352F0-PSG.edf
+2025-06-08 17:14:36,949 - __main__ - INFO - Fichier hypnogramme trouvé: SC4352FV-Hypnogram.edf
+2025-06-08 17:14:37,005 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,009 - __main__ - INFO - Début du traitement du fichier: SC4362F0-PSG.edf
+2025-06-08 17:14:37,015 - __main__ - INFO - Fichier hypnogramme trouvé: SC4362FC-Hypnogram.edf
+2025-06-08 17:14:37,031 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  45% 69/152 [00:03<00:03, 22.80fichier/s]2025-06-08 17:14:37,036 - __main__ - INFO - Début du traitement du fichier: SC4371F0-PSG.edf
+2025-06-08 17:14:37,042 - __main__ - INFO - Fichier hypnogramme trouvé: SC4371FA-Hypnogram.edf
+2025-06-08 17:14:37,077 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,083 - __main__ - INFO - Début du traitement du fichier: SC4372F0-PSG.edf
+2025-06-08 17:14:37,089 - __main__ - INFO - Fichier hypnogramme trouvé: SC4372FC-Hypnogram.edf
+2025-06-08 17:14:37,124 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,127 - __main__ - INFO - Début du traitement du fichier: SC4381F0-PSG.edf
+2025-06-08 17:14:37,134 - __main__ - INFO - Fichier hypnogramme trouvé: SC4381FC-Hypnogram.edf
+2025-06-08 17:14:37,164 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,167 - __main__ - INFO - Début du traitement du fichier: SC4382F0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  47% 72/152 [00:03<00:03, 22.83fichier/s]2025-06-08 17:14:37,173 - __main__ - INFO - Fichier hypnogramme trouvé: SC4382FW-Hypnogram.edf
+2025-06-08 17:14:37,199 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,206 - __main__ - INFO - Début du traitement du fichier: SC4401E0-PSG.edf
+2025-06-08 17:14:37,214 - __main__ - INFO - Fichier hypnogramme trouvé: SC4401EC-Hypnogram.edf
+2025-06-08 17:14:37,216 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,220 - __main__ - INFO - Début du traitement du fichier: SC4402E0-PSG.edf
+2025-06-08 17:14:37,225 - __main__ - INFO - Fichier hypnogramme trouvé: SC4402EW-Hypnogram.edf
+2025-06-08 17:14:37,263 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,268 - __main__ - INFO - Début du traitement du fichier: SC4411E0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  49% 75/152 [00:03<00:03, 24.50fichier/s]2025-06-08 17:14:37,275 - __main__ - INFO - Fichier hypnogramme trouvé: SC4411EJ-Hypnogram.edf
+2025-06-08 17:14:37,322 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,327 - __main__ - INFO - Début du traitement du fichier: SC4412E0-PSG.edf
+2025-06-08 17:14:37,333 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,336 - __main__ - INFO - Début du traitement du fichier: SC4421E0-PSG.edf
+2025-06-08 17:14:37,338 - __main__ - INFO - Fichier hypnogramme trouvé: SC4412EM-Hypnogram.edf
+2025-06-08 17:14:37,341 - __main__ - INFO - Fichier hypnogramme trouvé: SC4421EA-Hypnogram.edf
+2025-06-08 17:14:37,380 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  51% 78/152 [00:03<00:02, 24.83fichier/s]2025-06-08 17:14:37,385 - __main__ - INFO - Début du traitement du fichier: SC4422E0-PSG.edf
+2025-06-08 17:14:37,390 - __main__ - INFO - Fichier hypnogramme trouvé: SC4422EA-Hypnogram.edf
+2025-06-08 17:14:37,471 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,476 - __main__ - INFO - Début du traitement du fichier: SC4431E0-PSG.edf
+2025-06-08 17:14:37,477 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,481 - __main__ - INFO - Début du traitement du fichier: SC4432E0-PSG.edf
+2025-06-08 17:14:37,482 - __main__ - INFO - Fichier hypnogramme trouvé: SC4431EM-Hypnogram.edf
+2025-06-08 17:14:37,484 - __main__ - INFO - Fichier hypnogramme trouvé: SC4432EM-Hypnogram.edf
+2025-06-08 17:14:37,513 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,519 - __main__ - INFO - Début du traitement du fichier: SC4441E0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  53% 81/152 [00:03<00:02, 24.04fichier/s]2025-06-08 17:14:37,526 - __main__ - INFO - Fichier hypnogramme trouvé: SC4441EC-Hypnogram.edf
+2025-06-08 17:14:37,599 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,605 - __main__ - INFO - Début du traitement du fichier: SC4442E0-PSG.edf
+2025-06-08 17:14:37,605 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,610 - __main__ - INFO - Début du traitement du fichier: SC4451F0-PSG.edf
+2025-06-08 17:14:37,612 - __main__ - INFO - Fichier hypnogramme trouvé: SC4442EV-Hypnogram.edf
+2025-06-08 17:14:37,613 - __main__ - INFO - Fichier hypnogramme trouvé: SC4451FY-Hypnogram.edf
+2025-06-08 17:14:37,636 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,641 - __main__ - INFO - Début du traitement du fichier: SC4452F0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  55% 84/152 [00:03<00:02, 24.20fichier/s]2025-06-08 17:14:37,647 - __main__ - INFO - Fichier hypnogramme trouvé: SC4452FW-Hypnogram.edf
+2025-06-08 17:14:37,711 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,715 - __main__ - INFO - Début du traitement du fichier: SC4461F0-PSG.edf
+2025-06-08 17:14:37,716 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,719 - __main__ - INFO - Début du traitement du fichier: SC4462F0-PSG.edf
+2025-06-08 17:14:37,720 - __main__ - INFO - Fichier hypnogramme trouvé: SC4461FA-Hypnogram.edf
+2025-06-08 17:14:37,721 - __main__ - INFO - Fichier hypnogramme trouvé: SC4462FJ-Hypnogram.edf
+2025-06-08 17:14:37,788 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,792 - __main__ - INFO - Début du traitement du fichier: SC4471F0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  57% 87/152 [00:03<00:02, 22.74fichier/s]2025-06-08 17:14:37,792 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,796 - __main__ - INFO - Début du traitement du fichier: SC4472F0-PSG.edf
+2025-06-08 17:14:37,797 - __main__ - INFO - Fichier hypnogramme trouvé: SC4471FA-Hypnogram.edf
+2025-06-08 17:14:37,799 - __main__ - INFO - Fichier hypnogramme trouvé: SC4472FA-Hypnogram.edf
+2025-06-08 17:14:37,860 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,864 - __main__ - INFO - Début du traitement du fichier: SC4482F0-PSG.edf
+2025-06-08 17:14:37,868 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,872 - __main__ - INFO - Début du traitement du fichier: SC4491G0-PSG.edf
+2025-06-08 17:14:37,873 - __main__ - INFO - Fichier hypnogramme trouvé: SC4482FJ-Hypnogram.edf
+2025-06-08 17:14:37,877 - __main__ - INFO - Fichier hypnogramme trouvé: SC4491GJ-Hypnogram.edf
+2025-06-08 17:14:37,951 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,955 - __main__ - INFO - Début du traitement du fichier: SC4492G0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  60% 91/152 [00:03<00:02, 23.32fichier/s]2025-06-08 17:14:37,957 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:37,960 - __main__ - INFO - Début du traitement du fichier: SC4501E0-PSG.edf
+2025-06-08 17:14:37,963 - __main__ - INFO - Fichier hypnogramme trouvé: SC4492GJ-Hypnogram.edf
+2025-06-08 17:14:37,964 - __main__ - INFO - Fichier hypnogramme trouvé: SC4501EW-Hypnogram.edf
+2025-06-08 17:14:38,024 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:38,029 - __main__ - INFO - Début du traitement du fichier: SC4502E0-PSG.edf
+2025-06-08 17:14:38,034 - __main__ - INFO - Fichier hypnogramme trouvé: SC4502EM-Hypnogram.edf
+2025-06-08 17:14:38,039 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:38,044 - __main__ - INFO - Début du traitement du fichier: SC4511E0-PSG.edf
+2025-06-08 17:14:38,049 - __main__ - INFO - Fichier hypnogramme trouvé: SC4511EJ-Hypnogram.edf
+2025-06-08 17:14:38,098 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  62% 95/152 [00:04<00:02, 24.57fichier/s]2025-06-08 17:14:38,101 - __main__ - INFO - Début du traitement du fichier: SC4512E0-PSG.edf
+2025-06-08 17:14:38,107 - __main__ - INFO - Fichier hypnogramme trouvé: SC4512EW-Hypnogram.edf
+2025-06-08 17:14:38,115 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:38,119 - __main__ - INFO - Début du traitement du fichier: SC4522E0-PSG.edf
+2025-06-08 17:14:38,124 - __main__ - INFO - Fichier hypnogramme trouvé: SC4522EM-Hypnogram.edf
+2025-06-08 17:14:38,182 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:38,188 - __main__ - INFO - Début du traitement du fichier: SC4531E0-PSG.edf
+2025-06-08 17:14:38,195 - __main__ - INFO - Fichier hypnogramme trouvé: SC4531EM-Hypnogram.edf
+2025-06-08 17:14:38,208 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  64% 98/152 [00:04<00:02, 25.25fichier/s]2025-06-08 17:14:38,211 - __main__ - INFO - Début du traitement du fichier: SC4532E0-PSG.edf
+2025-06-08 17:14:38,216 - __main__ - INFO - Fichier hypnogramme trouvé: SC4532EV-Hypnogram.edf
+2025-06-08 17:14:38,269 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:38,274 - __main__ - INFO - Début du traitement du fichier: SC4541F0-PSG.edf
+2025-06-08 17:14:38,280 - __main__ - INFO - Fichier hypnogramme trouvé: SC4541FA-Hypnogram.edf
+2025-06-08 17:14:38,340 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:38,343 - __main__ - INFO - Début du traitement du fichier: SC4542F0-PSG.edf
+2025-06-08 17:14:38,348 - __main__ - INFO - Fichier hypnogramme trouvé: SC4542FW-Hypnogram.edf
+2025-06-08 17:14:38,392 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:38,395 - __main__ - INFO - Début du traitement du fichier: SC4551F0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  66% 101/152 [00:04<00:02, 21.94fichier/s]2025-06-08 17:14:38,400 - __main__ - INFO - Fichier hypnogramme trouvé: SC4551FC-Hypnogram.edf
+2025-06-08 17:14:38,448 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:38,452 - __main__ - INFO - Début du traitement du fichier: SC4552F0-PSG.edf
+2025-06-08 17:14:38,457 - __main__ - INFO - Fichier hypnogramme trouvé: SC4552FW-Hypnogram.edf
+2025-06-08 17:14:38,509 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:38,513 - __main__ - INFO - Début du traitement du fichier: SC4561F0-PSG.edf
+2025-06-08 17:14:38,517 - __main__ - INFO - Fichier hypnogramme trouvé: SC4561FJ-Hypnogram.edf
+2025-06-08 17:14:38,571 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  68% 104/152 [00:04<00:02, 20.09fichier/s]2025-06-08 17:14:38,576 - __main__ - INFO - Début du traitement du fichier: SC4562F0-PSG.edf
+2025-06-08 17:14:38,582 - __main__ - INFO - Fichier hypnogramme trouvé: SC4562FJ-Hypnogram.edf
+2025-06-08 17:14:38,659 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:38,663 - __main__ - INFO - Début du traitement du fichier: SC4571F0-PSG.edf
+2025-06-08 17:14:38,668 - __main__ - INFO - Fichier hypnogramme trouvé: SC4571FV-Hypnogram.edf
+2025-06-08 17:14:38,712 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:38,715 - __main__ - INFO - Début du traitement du fichier: SC4572F0-PSG.edf
+2025-06-08 17:14:38,720 - __main__ - INFO - Fichier hypnogramme trouvé: SC4572FC-Hypnogram.edf
+2025-06-08 17:14:38,767 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:38,772 - __main__ - INFO - Début du traitement du fichier: SC4581G0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  70% 107/152 [00:04<00:02, 18.43fichier/s]2025-06-08 17:14:38,777 - __main__ - INFO - Fichier hypnogramme trouvé: SC4581GM-Hypnogram.edf
+2025-06-08 17:14:38,830 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:38,834 - __main__ - INFO - Début du traitement du fichier: SC4582G0-PSG.edf
+2025-06-08 17:14:38,840 - __main__ - INFO - Fichier hypnogramme trouvé: SC4582GP-Hypnogram.edf
+2025-06-08 17:14:38,863 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:38,867 - __main__ - INFO - Début du traitement du fichier: SC4591G0-PSG.edf
+2025-06-08 17:14:38,874 - __main__ - INFO - Fichier hypnogramme trouvé: SC4591GY-Hypnogram.edf
+2025-06-08 17:14:38,923 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  72% 110/152 [00:04<00:02, 18.67fichier/s]2025-06-08 17:14:38,928 - __main__ - INFO - Début du traitement du fichier: SC4592G0-PSG.edf
+2025-06-08 17:14:38,933 - __main__ - INFO - Fichier hypnogramme trouvé: SC4592GY-Hypnogram.edf
+2025-06-08 17:14:38,958 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:38,963 - __main__ - INFO - Début du traitement du fichier: SC4601E0-PSG.edf
+2025-06-08 17:14:38,969 - __main__ - INFO - Fichier hypnogramme trouvé: SC4601EC-Hypnogram.edf
+2025-06-08 17:14:38,995 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:39,000 - __main__ - INFO - Début du traitement du fichier: SC4602E0-PSG.edf
+2025-06-08 17:14:39,005 - __main__ - INFO - Fichier hypnogramme trouvé: SC4602EJ-Hypnogram.edf
+2025-06-08 17:14:39,037 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  74% 113/152 [00:05<00:01, 20.46fichier/s]2025-06-08 17:14:39,041 - __main__ - INFO - Début du traitement du fichier: SC4611E0-PSG.edf
+2025-06-08 17:14:39,047 - __main__ - INFO - Fichier hypnogramme trouvé: SC4611EG-Hypnogram.edf
+2025-06-08 17:14:39,902 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:39,907 - __main__ - INFO - Début du traitement du fichier: SC4612E0-PSG.edf
+2025-06-08 17:14:39,912 - __main__ - INFO - Fichier hypnogramme trouvé: SC4612EA-Hypnogram.edf
+2025-06-08 17:14:39,957 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:39,962 - __main__ - INFO - Début du traitement du fichier: SC4621E0-PSG.edf
+2025-06-08 17:14:39,967 - __main__ - INFO - Fichier hypnogramme trouvé: SC4621EV-Hypnogram.edf
+2025-06-08 17:14:41,187 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:41,190 - __main__ - INFO - Début du traitement du fichier: SC4622E0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  76% 116/152 [00:07<00:08,  4.06fichier/s]2025-06-08 17:14:41,195 - __main__ - INFO - Fichier hypnogramme trouvé: SC4622EJ-Hypnogram.edf
+2025-06-08 17:14:41,652 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:41,656 - __main__ - INFO - Début du traitement du fichier: SC4631E0-PSG.edf
+2025-06-08 17:14:41,660 - __main__ - INFO - Fichier hypnogramme trouvé: SC4631EM-Hypnogram.edf
+2025-06-08 17:14:41,850 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:41,854 - __main__ - INFO - Début du traitement du fichier: SC4632E0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  78% 118/152 [00:07<00:09,  3.77fichier/s]2025-06-08 17:14:41,859 - __main__ - INFO - Fichier hypnogramme trouvé: SC4632EA-Hypnogram.edf
+2025-06-08 17:14:41,966 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:41,972 - __main__ - INFO - Début du traitement du fichier: SC4641E0-PSG.edf
+2025-06-08 17:14:41,977 - __main__ - INFO - Fichier hypnogramme trouvé: SC4641EP-Hypnogram.edf
+2025-06-08 17:14:42,412 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:42,416 - __main__ - INFO - Début du traitement du fichier: SC4642E0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  79% 120/152 [00:08<00:08,  3.72fichier/s]2025-06-08 17:14:42,420 - __main__ - INFO - Fichier hypnogramme trouvé: SC4642EP-Hypnogram.edf
+2025-06-08 17:14:43,613 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  80% 121/152 [00:09<00:12,  2.47fichier/s]2025-06-08 17:14:43,618 - __main__ - INFO - Début du traitement du fichier: SC4651E0-PSG.edf
+2025-06-08 17:14:43,626 - __main__ - INFO - Fichier hypnogramme trouvé: SC4651EP-Hypnogram.edf
+2025-06-08 17:14:43,654 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:43,659 - __main__ - INFO - Début du traitement du fichier: SC4652E0-PSG.edf
+2025-06-08 17:14:43,664 - __main__ - INFO - Fichier hypnogramme trouvé: SC4652EG-Hypnogram.edf
+2025-06-08 17:14:43,666 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:43,669 - __main__ - INFO - Début du traitement du fichier: SC4661E0-PSG.edf
+2025-06-08 17:14:43,677 - __main__ - INFO - Fichier hypnogramme trouvé: SC4661EJ-Hypnogram.edf
+2025-06-08 17:14:43,739 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  82% 124/152 [00:09<00:07,  3.77fichier/s]2025-06-08 17:14:43,743 - __main__ - INFO - Début du traitement du fichier: SC4662E0-PSG.edf
+2025-06-08 17:14:43,748 - __main__ - INFO - Fichier hypnogramme trouvé: SC4662EJ-Hypnogram.edf
+2025-06-08 17:14:45,135 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:45,141 - __main__ - INFO - Début du traitement du fichier: SC4671G0-PSG.edf
+2025-06-08 17:14:45,248 - __main__ - INFO - Fichier hypnogramme trouvé: SC4671GJ-Hypnogram.edf
+2025-06-08 17:14:46,960 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  83% 126/152 [00:12<00:16,  1.60fichier/s]2025-06-08 17:14:46,963 - __main__ - INFO - Début du traitement du fichier: SC4672G0-PSG.edf
+2025-06-08 17:14:46,968 - __main__ - INFO - Fichier hypnogramme trouvé: SC4672GV-Hypnogram.edf
+2025-06-08 17:14:47,182 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  84% 127/152 [00:13<00:14,  1.78fichier/s]2025-06-08 17:14:47,187 - __main__ - INFO - Début du traitement du fichier: SC4701E0-PSG.edf
+2025-06-08 17:14:47,190 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:47,196 - __main__ - INFO - Début du traitement du fichier: SC4702E0-PSG.edf
+2025-06-08 17:14:47,197 - __main__ - INFO - Fichier hypnogramme trouvé: SC4701EC-Hypnogram.edf
+2025-06-08 17:14:47,201 - __main__ - INFO - Fichier hypnogramme trouvé: SC4702EA-Hypnogram.edf
+2025-06-08 17:14:48,531 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  85% 129/152 [00:14<00:13,  1.67fichier/s]2025-06-08 17:14:48,538 - __main__ - INFO - Début du traitement du fichier: SC4711E0-PSG.edf
+2025-06-08 17:14:48,545 - __main__ - INFO - Fichier hypnogramme trouvé: SC4711EC-Hypnogram.edf
+2025-06-08 17:14:49,045 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:49,050 - __main__ - INFO - Début du traitement du fichier: SC4712E0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  86% 130/152 [00:15<00:12,  1.72fichier/s]2025-06-08 17:14:49,055 - __main__ - INFO - Fichier hypnogramme trouvé: SC4712EA-Hypnogram.edf
+2025-06-08 17:14:49,232 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  86% 131/152 [00:15<00:10,  2.00fichier/s]2025-06-08 17:14:49,238 - __main__ - INFO - Début du traitement du fichier: SC4721E0-PSG.edf
+2025-06-08 17:14:49,243 - __main__ - INFO - Fichier hypnogramme trouvé: SC4721EC-Hypnogram.edf
+2025-06-08 17:14:49,417 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  87% 132/152 [00:15<00:08,  2.34fichier/s]2025-06-08 17:14:49,421 - __main__ - INFO - Début du traitement du fichier: SC4722E0-PSG.edf
+2025-06-08 17:14:49,426 - __main__ - INFO - Fichier hypnogramme trouvé: SC4722EM-Hypnogram.edf
+2025-06-08 17:14:50,340 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  88% 133/152 [00:16<00:10,  1.82fichier/s]2025-06-08 17:14:50,345 - __main__ - INFO - Début du traitement du fichier: SC4731E0-PSG.edf
+2025-06-08 17:14:50,349 - __main__ - INFO - Fichier hypnogramme trouvé: SC4731EM-Hypnogram.edf
+2025-06-08 17:14:50,604 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  88% 134/152 [00:16<00:08,  2.10fichier/s]2025-06-08 17:14:50,609 - __main__ - INFO - Début du traitement du fichier: SC4732E0-PSG.edf
+2025-06-08 17:14:50,614 - __main__ - INFO - Fichier hypnogramme trouvé: SC4732EJ-Hypnogram.edf
+2025-06-08 17:14:50,978 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  89% 135/152 [00:16<00:07,  2.23fichier/s]2025-06-08 17:14:50,982 - __main__ - INFO - Début du traitement du fichier: SC4741E0-PSG.edf
+2025-06-08 17:14:50,987 - __main__ - INFO - Fichier hypnogramme trouvé: SC4741EA-Hypnogram.edf
+2025-06-08 17:14:51,111 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  89% 136/152 [00:17<00:05,  2.78fichier/s]2025-06-08 17:14:51,115 - __main__ - INFO - Début du traitement du fichier: SC4742E0-PSG.edf
+2025-06-08 17:14:51,120 - __main__ - INFO - Fichier hypnogramme trouvé: SC4742EC-Hypnogram.edf
+2025-06-08 17:14:52,225 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  90% 137/152 [00:18<00:08,  1.74fichier/s]2025-06-08 17:14:52,231 - __main__ - INFO - Début du traitement du fichier: SC4751E0-PSG.edf
+2025-06-08 17:14:52,238 - __main__ - INFO - Fichier hypnogramme trouvé: SC4751EC-Hypnogram.edf
+2025-06-08 17:14:52,489 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  91% 138/152 [00:18<00:06,  2.06fichier/s]2025-06-08 17:14:52,496 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:52,495 - __main__ - INFO - Début du traitement du fichier: SC4752E0-PSG.edf
+2025-06-08 17:14:52,500 - __main__ - INFO - Début du traitement du fichier: SC4761E0-PSG.edf
+2025-06-08 17:14:52,508 - __main__ - INFO - Fichier hypnogramme trouvé: SC4752EM-Hypnogram.edf
+2025-06-08 17:14:52,509 - __main__ - INFO - Fichier hypnogramme trouvé: SC4761EP-Hypnogram.edf
+2025-06-08 17:14:52,644 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  92% 140/152 [00:18<00:03,  3.33fichier/s]2025-06-08 17:14:52,648 - __main__ - INFO - Début du traitement du fichier: SC4762E0-PSG.edf
+2025-06-08 17:14:52,653 - __main__ - INFO - Fichier hypnogramme trouvé: SC4762EG-Hypnogram.edf
+2025-06-08 17:14:54,069 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:54,074 - __main__ - INFO - Début du traitement du fichier: SC4771G0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  93% 141/152 [00:20<00:06,  1.74fichier/s]2025-06-08 17:14:54,080 - __main__ - INFO - Fichier hypnogramme trouvé: SC4771GC-Hypnogram.edf
+2025-06-08 17:14:54,325 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  93% 142/152 [00:20<00:04,  2.03fichier/s]2025-06-08 17:14:54,330 - __main__ - INFO - Début du traitement du fichier: SC4772G0-PSG.edf
+2025-06-08 17:14:54,335 - __main__ - INFO - Fichier hypnogramme trouvé: SC4772GC-Hypnogram.edf
+2025-06-08 17:14:54,481 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:54,485 - __main__ - INFO - Début du traitement du fichier: SC4801G0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  94% 143/152 [00:20<00:03,  2.49fichier/s]2025-06-08 17:14:54,490 - __main__ - INFO - Fichier hypnogramme trouvé: SC4801GC-Hypnogram.edf
+2025-06-08 17:14:54,759 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:54,763 - __main__ - INFO - Début du traitement du fichier: SC4802G0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  95% 144/152 [00:20<00:02,  2.72fichier/s]2025-06-08 17:14:54,768 - __main__ - INFO - Fichier hypnogramme trouvé: SC4802GV-Hypnogram.edf
+2025-06-08 17:14:55,727 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:55,730 - __main__ - INFO - Début du traitement du fichier: SC4811G0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  95% 145/152 [00:21<00:03,  1.86fichier/s]2025-06-08 17:14:55,735 - __main__ - INFO - Fichier hypnogramme trouvé: SC4811GG-Hypnogram.edf
+2025-06-08 17:14:56,242 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:56,247 - __main__ - INFO - Début du traitement du fichier: SC4812G0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  96% 146/152 [00:22<00:03,  1.88fichier/s]2025-06-08 17:14:56,253 - __main__ - INFO - Fichier hypnogramme trouvé: SC4812GV-Hypnogram.edf
+2025-06-08 17:14:56,348 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:56,352 - __main__ - INFO - Début du traitement du fichier: SC4821G0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  97% 147/152 [00:22<00:02,  2.46fichier/s]2025-06-08 17:14:56,360 - __main__ - INFO - Fichier hypnogramme trouvé: SC4821GC-Hypnogram.edf
+2025-06-08 17:14:56,450 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:56,454 - __main__ - INFO - Début du traitement du fichier: SC4822G0-PSG.edf
+Traitement des fichiers PSG (hybride CPU/GPU):  97% 148/152 [00:22<00:01,  3.15fichier/s]2025-06-08 17:14:56,459 - __main__ - INFO - Fichier hypnogramme trouvé: SC4822GC-Hypnogram.edf
+2025-06-08 17:14:57,494 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  98% 149/152 [00:23<00:01,  1.88fichier/s]2025-06-08 17:14:57,537 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+2025-06-08 17:14:58,305 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU):  99% 151/152 [00:24<00:00,  2.11fichier/s]2025-06-08 17:14:58,323 - __main__ - ERROR - Erreur lors du chargement des données EDF et annotations: expected str, bytes or os.PathLike object, not BytesIO
+Traceback (most recent call last):
+  File "/content/x_optimized_gpu.py", line 436, in process_single_psg_file
+    epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/x_optimized_gpu.py", line 321, in load_edf_with_annotations
+    raw = mne.io.read_raw_edf(io.BytesIO(edf_data), preload=True, verbose=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/mne/io/edf/edf.py", line 1695, in read_raw_edf
+    input_fname = os.path.abspath(input_fname)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 399, in abspath
+TypeError: expected str, bytes or os.PathLike object, not BytesIO
+Traitement des fichiers PSG (hybride CPU/GPU): 100% 152/152 [00:24<00:00,  6.24fichier/s]
+
