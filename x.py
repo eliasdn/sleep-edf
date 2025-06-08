@@ -470,7 +470,11 @@ def process_single_psg_file(psg_path):
                     except Exception as e:
                         print(f"❌ Erreur avec {clusterer_name}: {str(e)}")
                         continue
-                        
+
+                print(f"\n📊 Résumé {psg_name}:")
+                print(f"  Clusters avec label valide: {nb_clusters_with_valid_labels} / {len(unique_clusters)}")
+                print(f"  Clusters ignorés (aucun label valide): {nb_clusters_without_valid_labels}\n")
+                
             except Exception as e:
                 print(f"  ❌ Erreur majeure avec {reducer_name}: {str(e)}")
                 continue
