@@ -42,21 +42,19 @@ logger = logging.getLogger(__name__)
 
 # Contexte pour supprimer temporairement les sorties (thread-safe)
 class SuppressOutput:
-    _local = threading.local()
-    _lock = threading.Lock()
-    _refcount = 0
-    
     def __init__(self):
         self._devnull = None
         self._active = False
+        self._original_stdout = None
+        self._original_stderr = None
+        self._lock = threading.Lock()
+        self._refcount = 0
     
     def __enter__(self):
         with self._lock:
-            if not hasattr(self._local, 'original_stdout'):
-                self._local.original_stdout = sys.stdout
-                self._local.original_stderr = sys.stderr
-            
             if self._refcount == 0:
+                self._original_stdout = sys.stdout
+                self._original_stderr = sys.stderr
                 self._devnull = open(os.devnull, 'w')
                 sys.stdout = self._devnull
                 sys.stderr = self._devnull
@@ -69,15 +67,16 @@ class SuppressOutput:
         with self._lock:
             if not self._active:
                 return False
-                
+            
             self._refcount -= 1
             self._active = False
             
-            if self._refcount == 0 and hasattr(self._local, 'original_stdout'):
-                sys.stdout = self._local.original_stdout
-                sys.stderr = self._local.original_stderr
+            if self._refcount == 0 and self._original_stdout:
+                sys.stdout = self._original_stdout
+                sys.stderr = self._original_stderr
                 if self._devnull:
                     self._devnull.close()
+                    self._devnull = None
         return False
 
 # GPU imports
@@ -394,8 +393,19 @@ def load_edf_with_annotations(psg_path, hypnogram_path, epoch_length=30.0):
         true_labels = true_labels[:min_len]
         epochs = epochs[:min_len]
     
-    print(f"✅ Données chargées: {len(epochs)} époques, {len(epochs.info['ch_names'])} canaux")
-    return epochs, true_labels
+    # Récupérer les informations avant toute opération qui pourrait fermer le fichier
+    n_epochs = len(epochs)
+    n_channels = len(epochs.ch_names)
+    
+    # Créer une copie des epochs pour les désolidariser du fichier brut
+    epochs_copy = epochs.copy()
+    
+    # Libérer la mémoire du raw et des epochs d'origine
+    del raw
+    del epochs
+    
+    print(f"✅ Données chargées: {n_epochs} époques, {n_channels} canaux")
+    return epochs_copy, true_labels
 
 
 def process_single_psg_file(psg_path):
@@ -413,54 +423,57 @@ def process_single_psg_file(psg_path):
             
         logger.info(f"Fichier hypnogramme trouvé: {os.path.basename(hypno_path)}")
         
-        # 2. Charger les données EDF brutes
+        # 2. Charger les données EDF brutes et les annotations
         try:
             with SuppressOutput():
-                raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
-            logger.debug(f"Fichier EDF chargé: {psg_filename}")
+                # Charger les données EDF et les annotations en une seule fois
+                epochs, true_labels = load_edf_with_annotations(psg_path, hypno_path)
+                
+                # Vérifier que le chargement s'est bien passé
+                if epochs is None or true_labels is None or len(epochs) == 0:
+                    logger.error("Échec du chargement des données EDF et des annotations")
+                    return pd.DataFrame()
+                    
+                logger.info(f"Données EDF et annotations chargées: {len(epochs)} époques")
+                
+                # Extraire les données brutes des époques
+                data = epochs.get_data()
+                sfreq = epochs.info['sfreq']
+                n_epochs, n_channels, n_times = data.shape
+                
+                # Filtrer les canaux pour ne garder que les EEG
+                eeg_indices = [i for i, ch_name in enumerate(epochs.ch_names) if ch_name.startswith('EEG ')]
+                if not eeg_indices:
+                    logger.error("Aucun canal EEG trouvé dans les données chargées")
+                    return pd.DataFrame()
+                    
+                data = data[:, eeg_indices, :]
+                n_channels = len(eeg_indices)
+                
+                # Appliquer un filtre passe-bande
+                epochs.filter(0.5, 30., fir_design='firwin', verbose=False)
+                logger.info("Filtrage appliqué avec succès")
+                
         except Exception as e:
-            logging.error(f"Erreur lors du chargement du fichier EDF: {e}", exc_info=True)
+            logger.error(f"Erreur lors du chargement des données EDF et annotations: {e}", exc_info=True)
             return pd.DataFrame()
         
-        # 3. Filtrer les canaux pour ne garder que les canaux EEG valides
-        # Les canaux dans Sleep-EDF ont le préfixe 'EEG '
-        EEG_CHANNELS = ['EEG Fpz-Cz', 'EEG Pz-Oz']  # Noms complets des canaux EEG dans Sleep-EDF
-        available_eeg = [ch for ch in raw.ch_names if ch.startswith('EEG ')]
-        
-        if not available_eeg:
-            logging.warning(f"Aucun canal EEG valide trouvé dans {psg_filename}")
+        # 3. Vérifier que nous avons des données valides
+        if n_epochs == 0 or n_channels == 0 or n_times == 0:
+            logger.error("Données d'entrée invalides (époques, canaux ou temps manquants)")
             return pd.DataFrame()
             
-        logging.info(f"Canaux EEG disponibles: {available_eeg}")
+        logger.info(f"Données prêtes pour l'extraction des caractéristiques: {n_epochs} époques x {n_channels} canaux x {n_times} points")
+        logger.info(f"Nombre de vrais labels chargés: {len(true_labels)}")
         
-        # 4. Sélectionner les canaux EEG (on prend les deux premiers s'ils existent)
-        eeg_channels = available_eeg[:2]  # Prendre les deux premiers canaux EEG
-        logging.info(f"Utilisation des canaux: {eeg_channels}")
-        
-        # 5. Créer des époques et extraire les caractéristiques
-        try:
-            # 5.1 Créer des époques de 30 secondes
-            with SuppressOutput():
-                epochs = mne.make_fixed_length_epochs(raw, duration=30, preload=True, verbose=False)
-            logging.info(f"Création de {len(epochs)} époques de 30 secondes")
-            
-            # S'assurer que seuls les canaux EEG sont conservés
-            epochs.pick_channels(available_eeg)
-            
-            # Appliquer un filtre passe-bande
-            epochs.filter(0.5, 30., fir_design='firwin', verbose=False)
-            print("  ✅ Filtrage appliqué avec succès")
-            
-            # Récupérer les données brutes
-            data = epochs.get_data()
-            sfreq = epochs.info['sfreq']
-            n_epochs, n_channels, n_times = data.shape
-            
-            logger.info(f"  📊 Extraction des caractéristiques pour {n_epochs} époques x {n_channels} canaux...")
-            
-        except Exception as e:
-            logger.error(f"  ❌ Erreur lors du prétraitement: {e}")
-            return pd.DataFrame()
+        # 4. Vérifier la cohérence entre les données et les labels
+        if n_epochs != len(true_labels):
+            logger.warning(f"Incohérence détectée: {n_epochs} époques mais {len(true_labels)} labels. Ajustement...")
+            min_len = min(n_epochs, len(true_labels))
+            data = data[:min_len]
+            true_labels = true_labels[:min_len]
+            n_epochs = min_len
+            logger.info(f"Données et labels ajustés à {n_epochs} époques")
         
         # 5. Préparer les arguments pour le traitement parallèle
         args_list = []
@@ -469,7 +482,13 @@ def process_single_psg_file(psg_path):
             position_norm = i / n_epochs
             
             for j in range(n_channels):
-                args_list.append((data[i, j], sfreq, bands, ch_ref, position_norm))
+                # Vérifier que les données ne contiennent pas de NaN ou Inf
+                channel_data = data[i, j]
+                if np.any(np.isnan(channel_data)) or np.any(np.isinf(channel_data)):
+                    logger.warning(f"Données invalides détectées dans l'époque {i}, canal {j}. Remplacement par des zéros.")
+                    channel_data = np.nan_to_num(channel_data, nan=0.0, posinf=0.0, neginf=0.0)
+                
+                args_list.append((channel_data, sfreq, bands, ch_ref, position_norm))
         
         # 7. Traitement des canaux (séquentiel pour GPU, parallèle pour CPU)
         features_list = []
@@ -583,7 +602,7 @@ def process_single_psg_file(psg_path):
                 # Boucle sur les méthodes de clustering
                 for clusterer_name, clusterer_factory in clusterers:
                     try:
-                        logger.info(f"    - Test de {clusterer_name}...", end=' ')
+                        logger.info(f"    - Test de {clusterer_name}...")
                         
                         # Entraîner le modèle de clustering
                         clusterer = clusterer_factory()
@@ -687,9 +706,9 @@ def process_single_psg_file(psg_path):
                         logger.error(f"Erreur avec {clusterer_name}: {e}", exc_info=True)
                         continue
                         
-        except Exception as e:
-            logger.error(f"Erreur lors du benchmark: {e}", exc_info=True)
-            return pd.DataFrame()
+            except Exception as e:
+                logger.error(f"Erreur lors du benchmark: {e}", exc_info=True)
+                return pd.DataFrame()
         
         # Créer un DataFrame avec les résultats
         if not results:
@@ -729,41 +748,64 @@ def main():
     # Limiter le nombre de fichiers pour les tests
     # psg_files = psg_files[:1]  # Décommenter pour tester avec un seul fichier
     
-    # Configuration du traitement parallèle
-    max_psg_workers = min(psutil.cpu_count(logical=False), 4)  # Maximum 4 workers pour GPU
-    logger.info(f"Lancement du traitement parallèle sur {max_psg_workers} PSG en parallèle")
-    
+    # Configuration du traitement
+    max_psg_workers = min(psutil.cpu_count(logical=False), 4)  # Ajuster selon la mémoire GPU disponible
     results = []
     
-    try:
-        with concurrent.futures.ThreadPoolExecutor(max_workers=max_psg_workers) as executor:
-            # Soumettre toutes les tâches
-            future_to_psg = {
-                executor.submit(process_single_psg_file, psg_file): psg_file 
-                for psg_file in psg_files
-            }
-            
-            # Traiter les résultats au fur et à mesure
-            for future in tqdm(
-                concurrent.futures.as_completed(future_to_psg),
-                total=len(psg_files),
-                desc="Traitement des fichiers PSG",
-                unit="fichier"
-            ):
-                psg_file = future_to_psg[future]
+    if USE_GPU:
+        # Mode GPU → traitement SEQUENTIEL pour compatibilité Colab
+        logger.info("⚠️  Mode GPU activé → traitement SEQUENTIEL pour compatibilité Colab")
+        
+        try:
+            for psg_file in tqdm(psg_files, 
+                              desc="Traitement des fichiers PSG (GPU séquentiel)", 
+                              unit="fichier"):
                 try:
-                    result = future.result()
+                    result = process_single_psg_file(psg_file)
                     if not result.empty:
                         results.append(result)
-                        # Sauvegarder les résultats de manière incrémentielle
+                        # Sauvegarde incrémentielle
                         pd.concat(results).to_csv(OUTPUT_CSV, index=False)
                         logger.debug(f"Résultats sauvegardés pour {os.path.basename(psg_file)}")
                 except Exception as e:
                     logger.error(f"Erreur lors du traitement de {os.path.basename(psg_file)}: {str(e)}", 
-                               exc_info=True)
-    except Exception as e:
-        logger.critical("Erreur critique dans le traitement parallèle", exc_info=True)
-        raise
+                                 exc_info=True)
+                    continue
+        except Exception as e:
+            logger.critical("Erreur critique dans le traitement séquentiel (GPU)", exc_info=True)
+            raise
+        
+    else:
+        # Mode CPU → traitement parallèle avec ThreadPoolExecutor (classique)
+        logger.info(f"Lancement du traitement parallèle sur {max_psg_workers} PSG en parallèle (CPU)")
+        
+        try:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=max_psg_workers) as executor:
+                future_to_psg = {
+                    executor.submit(process_single_psg_file, psg_file): psg_file 
+                    for psg_file in psg_files
+                }
+                
+                for future in tqdm(
+                    concurrent.futures.as_completed(future_to_psg),
+                    total=len(psg_files),
+                    desc="Traitement des fichiers PSG (CPU)",
+                    unit="fichier"
+                ):
+                    psg_file = future_to_psg[future]
+                    try:
+                        result = future.result()
+                        if not result.empty:
+                            results.append(result)
+                            # Sauvegarde incrémentielle
+                            pd.concat(results).to_csv(OUTPUT_CSV, index=False)
+                            logger.debug(f"Résultats sauvegardés pour {os.path.basename(psg_file)}")
+                    except Exception as e:
+                        logger.error(f"Erreur lors du traitement de {os.path.basename(psg_file)}: {str(e)}",
+                                     exc_info=True)
+        except Exception as e:
+            logger.critical("Erreur critique dans le traitement parallèle (CPU)", exc_info=True)
+            raise
             
     if results:
         final_df = pd.concat(results, ignore_index=True)
