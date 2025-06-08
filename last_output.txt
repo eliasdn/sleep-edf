@@ -1,0 +1,2314 @@
+Fichiers PSG trouvés: 152
+
+Démarrage du traitement parallèle sur 2 cœurs...
+
+Traitement des fichiers:   0%|          | 0/152 [00:00<?, ?it/s]
+
+
+Traitement du fichier: SC4002E0-PSG.edf
+Traitement du fichier: SC4001E0-PSG.edf
+
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Header information is incorrect for record length. Default record length set to 1.
+It is possible that this file only contains annotations and no signals. In that case, please use mne.read_annotations() to load these annotations.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Omitted 153 annotation(s) that were outside data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+
+Not setting metadata
+2650 matching events found
+No baseline correction applied
+0 projection items activated
+Using data from preloaded Raw for 2650 events and 3000 original time points ...
+0 bad epochs dropped
+✅ Données chargées: 2650 époques, 7 canaux
+
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Header information is incorrect for record length. Default record length set to 1.
+It is possible that this file only contains annotations and no signals. In that case, please use mne.read_annotations() to load these annotations.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Omitted 151 annotation(s) that were outside data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+
+Not setting metadata
+2830 matching events found
+No baseline correction applied
+0 projection items activated
+Using data from preloaded Raw for 2830 events and 3000 original time points ...
+0 bad epochs dropped
+✅ Données chargées: 2830 époques, 7 canaux
+
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+
+  - Données chargées: 2650 époques, 7 canaux
+  - Filtrage du signal...
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 1 - 40 Hz
+
+FIR filter parameters
+---------------------
+Designing a one-pass, zero-phase, non-causal bandpass filter:
+- Windowed time-domain design (firwin) method
+- Hamming window with 0.0194 passband ripple and 53 dB stopband attenuation
+- Lower passband edge: 1.00
+- Lower transition bandwidth: 1.00 Hz (-6 dB cutoff frequency: 0.50 Hz)
+- Upper passband edge: 40.00 Hz
+- Upper transition bandwidth: 10.00 Hz (-6 dB cutoff frequency: 45.00 Hz)
+- Filter length: 331 samples (3.310 s)
+
+[Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    5.9s finished
+
+  - Signal filtré: 100.0 Hz
+  - Extraction des caractéristiques pour 2650 époques x 7 canaux...
+
+  - Extraction des features:   0%|          | 0/18550 [00:00<?, ?it/s]
+
+  - Données chargées: 2830 époques, 7 canaux
+  - Filtrage du signal...
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 1 - 40 Hz
+
+FIR filter parameters
+---------------------
+Designing a one-pass, zero-phase, non-causal bandpass filter:
+- Windowed time-domain design (firwin) method
+- Hamming window with 0.0194 passband ripple and 53 dB stopband attenuation
+- Lower passband edge: 1.00
+- Lower transition bandwidth: 1.00 Hz (-6 dB cutoff frequency: 0.50 Hz)
+- Upper passband edge: 40.00 Hz
+- Upper transition bandwidth: 10.00 Hz (-6 dB cutoff frequency: 45.00 Hz)
+- Filter length: 331 samples (3.310 s)
+
+  - Extraction des features:   0%|          | 60/18550 [00:05<25:43, 11.98it/s][Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    4.1s finished
+
+  - Signal filtré: 100.0 Hz
+  - Extraction des caractéristiques pour 2830 époques x 7 canaux...
+
+  - Préparation des données pour le clustering...
+  - Normalisation des données...
+  - Démarrage du benchmark...
+
+  - Test de UMAP...
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+  - Extraction des features:  95%|█████████▍| 18818/19810 [32:39<01:43,  9.61it/s]
+
+    - Test de KMeans... ⚠️ Cluster 0: 567 samples, aucun label valide trouvé.
+    📊 Cluster 1: 482 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 2: 858 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 433 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 310 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+    📊 Cluster 0: 792 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 1000 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 858 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de PCA...
+    - Test de KMeans... 
+
+  - Extraction des features:  95%|█████████▌| 18872/19810 [32:44<01:34,  9.95it/s]
+
+⚠️ Cluster 0: 1000 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 295 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 888 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 324 samples, aucun label valide trouvé.
+    📊 Cluster 4: 143 samples (valid: 1), majority label = 0 (1 samples)
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 999 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 743 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 856 samples, aucun label valide trouvé.
+✓
+
+  - Test de None...
+    - Test de KMeans... ⚠️ Cluster 0: 863 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 323 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 1000 samples, aucun label valide trouvé.
+    📊 Cluster 3: 142 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 4: 322 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 437 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 756 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 873 samples, aucun label valide trouvé.
+✓
+
+Traitement des fichiers:   1%|          | 1/152 [33:23<84:02:43, 2003.73s/it]
+
+
+Traitement du fichier: SC4011E0-PSG.edf
+
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:  96%|█████████▌| 19019/19810 [33:06<01:39,  7.92it/s]<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Header information is incorrect for record length. Default record length set to 1.
+It is possible that this file only contains annotations and no signals. In that case, please use mne.read_annotations() to load these annotations.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Omitted 125 annotation(s) that were outside data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+
+Not setting metadata
+2802 matching events found
+No baseline correction applied
+0 projection items activated
+Using data from preloaded Raw for 2802 events and 3000 original time points ...
+
+  - Extraction des features:  96%|█████████▌| 19062/19810 [33:12<01:36,  7.79it/s]
+
+0 bad epochs dropped
+✅ Données chargées: 2802 époques, 7 canaux
+
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:  97%|█████████▋| 19176/19810 [33:22<01:07,  9.37it/s]
+
+  - Données chargées: 2802 époques, 7 canaux
+  - Filtrage du signal...
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 1 - 40 Hz
+
+FIR filter parameters
+---------------------
+Designing a one-pass, zero-phase, non-causal bandpass filter:
+- Windowed time-domain design (firwin) method
+- Hamming window with 0.0194 passband ripple and 53 dB stopband attenuation
+- Lower passband edge: 1.00
+- Lower transition bandwidth: 1.00 Hz (-6 dB cutoff frequency: 0.50 Hz)
+- Upper passband edge: 40.00 Hz
+- Upper transition bandwidth: 10.00 Hz (-6 dB cutoff frequency: 45.00 Hz)
+- Filter length: 331 samples (3.310 s)
+
+  - Extraction des features:  97%|█████████▋| 19225/19810 [33:28<01:07,  8.71it/s][Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    5.1s finished
+
+  - Signal filtré: 100.0 Hz
+  - Extraction des caractéristiques pour 2802 époques x 7 canaux...
+
+  - Préparation des données pour le clustering...
+  - Normalisation des données...
+  - Démarrage du benchmark...
+
+  - Test de UMAP...
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+  - Extraction des features:   4%|▍         | 839/19614 [01:29<34:45,  9.00it/s]
+
+    - Test de KMeans... ⚠️ Cluster 0: 846 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 658 samples, aucun label valide trouvé.
+    📊 Cluster 2: 698 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 3: 285 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 343 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 846 samples, aucun label valide trouvé.
+    📊 Cluster 1: 1041 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 2: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 72 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 51 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 21 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 17 samples, aucun label valide trouvé.
+⚠️ Cluster 9: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 10: 26 samples, aucun label valide trouvé.
+⚠️ Cluster 11: 20 samples, aucun label valide trouvé.
+⚠️ Cluster 12: 31 samples, aucun label valide trouvé.
+⚠️ Cluster 13: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 14: 19 samples, aucun label valide trouvé.
+⚠️ Cluster 15: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 16: 22 samples, aucun label valide trouvé.
+⚠️ Cluster 17: 19 samples, aucun label valide trouvé.
+⚠️ Cluster 18: 65 samples, aucun label valide trouvé.
+⚠️ Cluster 19: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 20: 32 samples, aucun label valide trouvé.
+⚠️ Cluster 21: 22 samples, aucun label valide trouvé.
+⚠️ Cluster 22: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 23: 200 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de PCA...
+    - Test de KMeans...     📊 Cluster 0: 657 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 151 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 844 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 961 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 217 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 843 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 20 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 125 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 52 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 26 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 318 samples, aucun label valide trouvé.
+⚠️ Cluster 9: 20 samples, aucun label valide trouvé.
+⚠️ Cluster 10: 21 samples, aucun label valide trouvé.
+⚠️ Cluster 11: 136 samples, aucun label valide trouvé.
+⚠️ Cluster 12: 108 samples, aucun label valide trouvé.
+⚠️ Cluster 13: 21 samples, aucun label valide trouvé.
+⚠️ Cluster 14: 663 samples, aucun label valide trouvé.
+⚠️ Cluster 15: 29 samples, aucun label valide trouvé.
+✓
+
+  - Test de None...
+    - Test de KMeans... ⚠️ Cluster 0: 848 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 280 samples, aucun label valide trouvé.
+    📊 Cluster 2: 724 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 3: 122 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 856 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+  - Extraction des features:   5%|▍         | 888/19614 [01:34<33:51,  9.22it/s]
+
+⚠️ Cluster 0: 19 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 808 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 69 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 543 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 666 samples, aucun label valide trouvé.
+✓
+
+Traitement des fichiers:   1%|▏         | 2/152 [35:43<37:48:30, 907.40s/it] 
+
+
+Traitement du fichier: SC4012E0-PSG.edf
+
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:   5%|▍         | 938/19614 [01:40<33:12,  9.38it/s]<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Header information is incorrect for record length. Default record length set to 1.
+It is possible that this file only contains annotations and no signals. In that case, please use mne.read_annotations() to load these annotations.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Omitted 170 annotation(s) that were outside data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+
+Not setting metadata
+2850 matching events found
+No baseline correction applied
+0 projection items activated
+Using data from preloaded Raw for 2850 events and 3000 original time points ...
+
+  - Extraction des features:   5%|▌         | 986/19614 [01:46<35:46,  8.68it/s]
+
+0 bad epochs dropped
+✅ Données chargées: 2850 époques, 7 canaux
+
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+
+  - Données chargées: 2850 époques, 7 canaux
+  - Filtrage du signal...
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 1 - 40 Hz
+
+FIR filter parameters
+---------------------
+Designing a one-pass, zero-phase, non-causal bandpass filter:
+- Windowed time-domain design (firwin) method
+- Hamming window with 0.0194 passband ripple and 53 dB stopband attenuation
+- Lower passband edge: 1.00
+- Lower transition bandwidth: 1.00 Hz (-6 dB cutoff frequency: 0.50 Hz)
+- Upper passband edge: 40.00 Hz
+- Upper transition bandwidth: 10.00 Hz (-6 dB cutoff frequency: 45.00 Hz)
+- Filter length: 331 samples (3.310 s)
+
+  - Extraction des features:   5%|▌         | 1040/19614 [01:51<33:29,  9.24it/s][Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    4.4s finished
+
+  - Signal filtré: 100.0 Hz
+  - Extraction des caractéristiques pour 2850 époques x 7 canaux...
+
+  - Préparation des données pour le clustering...
+  - Normalisation des données...
+  - Démarrage du benchmark...
+
+  - Test de UMAP...
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+  - Extraction des features:  94%|█████████▍| 18825/19950 [33:07<02:05,  8.98it/s]
+
+    - Test de KMeans...     📊 Cluster 0: 686 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 589 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 356 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 738 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 433 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+    📊 Cluster 0: 686 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 1094 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 69 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 16 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 52 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 22 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 59 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 17 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 9: 48 samples, aucun label valide trouvé.
+⚠️ Cluster 10: 83 samples, aucun label valide trouvé.
+⚠️ Cluster 11: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 12: 57 samples, aucun label valide trouvé.
+⚠️ Cluster 13: 60 samples, aucun label valide trouvé.
+⚠️ Cluster 14: 39 samples, aucun label valide trouvé.
+⚠️ Cluster 15: 51 samples, aucun label valide trouvé.
+⚠️ Cluster 16: 33 samples, aucun label valide trouvé.
+⚠️ Cluster 17: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 18: 41 samples, aucun label valide trouvé.
+⚠️ Cluster 19: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 20: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 21: 37 samples, aucun label valide trouvé.
+⚠️ Cluster 22: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 23: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 24: 15 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de PCA...
+    - Test de KMeans... ⚠️ Cluster 0: 441 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 1094 samples, aucun label valide trouvé.
+    📊 Cluster 2: 755 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 3: 224 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 288 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+    📊 Cluster 0: 679 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 1094 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 80 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 904 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de None...
+    - Test de KMeans... ⚠️ Cluster 0: 1094 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 252 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 517 samples, aucun label valide trouvé.
+    📊 Cluster 3: 686 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 4: 253 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+  - Extraction des features:  95%|█████████▍| 18873/19950 [33:12<01:57,  9.13it/s]
+
+⚠️ Cluster 0: 620 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 1034 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 711 samples, aucun label valide trouvé.
+✓
+
+Traitement des fichiers:   2%|▏         | 3/152 [1:09:21<58:32:27, 1414.41s/it]
+
+
+Traitement du fichier: SC4021E0-PSG.edf
+
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:  95%|█████████▌| 19031/19950 [33:29<01:38,  9.33it/s]<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Header information is incorrect for record length. Default record length set to 1.
+It is possible that this file only contains annotations and no signals. In that case, please use mne.read_annotations() to load these annotations.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Omitted 160 annotation(s) that were outside data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+
+Not setting metadata
+2804 matching events found
+No baseline correction applied
+0 projection items activated
+Using data from preloaded Raw for 2804 events and 3000 original time points ...
+0 bad epochs dropped
+✅ Données chargées: 2804 époques, 7 canaux
+
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:  96%|█████████▌| 19184/19950 [33:50<01:34,  8.08it/s]
+
+  - Données chargées: 2804 époques, 7 canaux
+  - Filtrage du signal...
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 1 - 40 Hz
+
+FIR filter parameters
+---------------------
+Designing a one-pass, zero-phase, non-causal bandpass filter:
+
+  - Extraction des features:  96%|█████████▋| 19234/19950 [33:56<01:28,  8.11it/s]
+
+- Windowed time-domain design (firwin) method
+- Hamming window with 0.0194 passband ripple and 53 dB stopband attenuation
+- Lower passband edge: 1.00
+- Lower transition bandwidth: 1.00 Hz (-6 dB cutoff frequency: 0.50 Hz)
+- Upper passband edge: 40.00 Hz
+- Upper transition bandwidth: 10.00 Hz (-6 dB cutoff frequency: 45.00 Hz)
+- Filter length: 331 samples (3.310 s)
+
+  - Extraction des features:  97%|█████████▋| 19282/19950 [34:03<01:24,  7.91it/s][Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    6.5s finished
+
+  - Signal filtré: 100.0 Hz
+  - Extraction des caractéristiques pour 2804 époques x 7 canaux...
+
+  - Préparation des données pour le clustering...
+  - Normalisation des données...
+  - Démarrage du benchmark...
+
+  - Test de UMAP...
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+  - Extraction des features:   4%|▍         | 838/19628 [01:29<34:51,  8.98it/s]
+
+    - Test de KMeans... ⚠️ Cluster 0: 659 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 496 samples, aucun label valide trouvé.
+    📊 Cluster 2: 595 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 3: 628 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 472 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 1131 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 39 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 30 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 23 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 20 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 31 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 642 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 44 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 63 samples, aucun label valide trouvé.
+⚠️ Cluster 9: 129 samples, aucun label valide trouvé.
+⚠️ Cluster 10: 20 samples, aucun label valide trouvé.
+⚠️ Cluster 11: 36 samples, aucun label valide trouvé.
+⚠️ Cluster 12: 49 samples, aucun label valide trouvé.
+⚠️ Cluster 13: 68 samples, aucun label valide trouvé.
+⚠️ Cluster 14: 10 samples, aucun label valide trouvé.
+    📊 Cluster 15: 390 samples (valid: 1), majority label = 0 (1 samples)
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de PCA...
+    - Test de KMeans...     📊 Cluster 0: 610 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 245 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 1156 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 347 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 492 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 17 samples, aucun label valide trouvé.
+    📊 Cluster 1: 595 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 2: 1127 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 42 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 76 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 15 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 854 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de None...
+    - Test de KMeans... ⚠️ Cluster 0: 44 samples, aucun label valide trouvé.
+    📊 Cluster 1: 618 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 2: 622 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 1128 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 438 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+  - Extraction des features:   5%|▍         | 889/19628 [01:34<33:34,  9.30it/s]
+
+⚠️ Cluster 0: 570 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 988 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 837 samples, aucun label valide trouvé.
+✓
+
+Traitement du fichier: SC4022E0-PSG.edf
+
+Traitement des fichiers:   3%|▎         | 4/152 [1:11:49<37:35:29, 914.39s/it] 
+
+
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:   5%|▍         | 936/19628 [01:40<34:48,  8.95it/s]<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Header information is incorrect for record length. Default record length set to 1.
+It is possible that this file only contains annotations and no signals. In that case, please use mne.read_annotations() to load these annotations.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Omitted 178 annotation(s) that were outside data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+
+Not setting metadata
+2756 matching events found
+No baseline correction applied
+0 projection items activated
+Using data from preloaded Raw for 2756 events and 3000 original time points ...
+
+  - Extraction des features:   5%|▌         | 982/19628 [01:45<34:50,  8.92it/s]
+
+0 bad epochs dropped
+✅ Données chargées: 2756 époques, 7 canaux
+
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+
+  - Données chargées: 2756 époques, 7 canaux
+  - Filtrage du signal...
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 1 - 40 Hz
+
+FIR filter parameters
+---------------------
+Designing a one-pass, zero-phase, non-causal bandpass filter:
+- Windowed time-domain design (firwin) method
+- Hamming window with 0.0194 passband ripple and 53 dB stopband attenuation
+- Lower passband edge: 1.00
+- Lower transition bandwidth: 1.00 Hz (-6 dB cutoff frequency: 0.50 Hz)
+- Upper passband edge: 40.00 Hz
+- Upper transition bandwidth: 10.00 Hz (-6 dB cutoff frequency: 45.00 Hz)
+- Filter length: 331 samples (3.310 s)
+
+  - Extraction des features:   5%|▌         | 1037/19628 [01:50<32:41,  9.48it/s][Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    3.8s finished
+
+  - Signal filtré: 100.0 Hz
+  - Extraction des caractéristiques pour 2756 époques x 7 canaux...
+
+  - Préparation des données pour le clustering...
+  - Normalisation des données...
+  - Démarrage du benchmark...
+
+  - Test de UMAP...
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+  - Extraction des features:  95%|█████████▌| 18337/19292 [32:54<01:44,  9.13it/s]
+
+    - Test de KMeans... ⚠️ Cluster 0: 487 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 590 samples, aucun label valide trouvé.
+    📊 Cluster 2: 717 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 3: 515 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 495 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 72 samples, aucun label valide trouvé.
+    📊 Cluster 1: 717 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 2: 31 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 33 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 26 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 64 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 817 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 30 samples, aucun label valide trouvé.
+⚠️ Cluster 9: 21 samples, aucun label valide trouvé.
+⚠️ Cluster 10: 45 samples, aucun label valide trouvé.
+⚠️ Cluster 11: 28 samples, aucun label valide trouvé.
+⚠️ Cluster 12: 25 samples, aucun label valide trouvé.
+⚠️ Cluster 13: 35 samples, aucun label valide trouvé.
+⚠️ Cluster 14: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 15: 32 samples, aucun label valide trouvé.
+⚠️ Cluster 16: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 17: 17 samples, aucun label valide trouvé.
+⚠️ Cluster 18: 30 samples, aucun label valide trouvé.
+⚠️ Cluster 19: 22 samples, aucun label valide trouvé.
+⚠️ Cluster 20: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 21: 29 samples, aucun label valide trouvé.
+⚠️ Cluster 22: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 23: 28 samples, aucun label valide trouvé.
+⚠️ Cluster 24: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 25: 24 samples, aucun label valide trouvé.
+⚠️ Cluster 26: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 27: 68 samples, aucun label valide trouvé.
+⚠️ Cluster 28: 47 samples, aucun label valide trouvé.
+⚠️ Cluster 29: 21 samples, aucun label valide trouvé.
+⚠️ Cluster 30: 38 samples, aucun label valide trouvé.
+⚠️ Cluster 31: 27 samples, aucun label valide trouvé.
+⚠️ Cluster 32: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 33: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 34: 24 samples, aucun label valide trouvé.
+⚠️ Cluster 35: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 36: 26 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de PCA...
+    - Test de KMeans... 
+
+  - Extraction des features:  95%|█████████▌| 18388/19292 [33:00<01:36,  9.37it/s]
+
+    📊 Cluster 0: 773 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 355 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 1086 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 371 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 219 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 1087 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 56 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 710 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 864 samples, aucun label valide trouvé.
+✓
+
+  - Test de None...
+    - Test de KMeans... ⚠️ Cluster 0: 375 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 415 samples, aucun label valide trouvé.
+    📊 Cluster 2: 751 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 3: 176 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 1087 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 1054 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 649 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 519 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 19 samples, aucun label valide trouvé.
+✓
+
+Traitement des fichiers:   3%|▎         | 5/152 [1:45:18<53:27:21, 1309.12s/it]
+
+
+Traitement du fichier: SC4031E0-PSG.edf
+
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:  96%|█████████▌| 18488/19292 [33:12<01:30,  8.90it/s]<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Header information is incorrect for record length. Default record length set to 1.
+It is possible that this file only contains annotations and no signals. In that case, please use mne.read_annotations() to load these annotations.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Omitted 118 annotation(s) that were outside data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+
+Not setting metadata
+2820 matching events found
+No baseline correction applied
+0 projection items activated
+Using data from preloaded Raw for 2820 events and 3000 original time points ...
+0 bad epochs dropped
+✅ Données chargées: 2820 époques, 7 canaux
+
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:  96%|█████████▌| 18543/19292 [33:17<01:19,  9.45it/s]
+
+  - Données chargées: 2820 époques, 7 canaux
+  - Filtrage du signal...
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 1 - 40 Hz
+
+FIR filter parameters
+---------------------
+Designing a one-pass, zero-phase, non-causal bandpass filter:
+- Windowed time-domain design (firwin) method
+- Hamming window with 0.0194 passband ripple and 53 dB stopband attenuation
+- Lower passband edge: 1.00
+- Lower transition bandwidth: 1.00 Hz (-6 dB cutoff frequency: 0.50 Hz)
+- Upper passband edge: 40.00 Hz
+- Upper transition bandwidth: 10.00 Hz (-6 dB cutoff frequency: 45.00 Hz)
+- Filter length: 331 samples (3.310 s)
+
+  - Extraction des features:  96%|█████████▋| 18592/19292 [33:24<01:21,  8.60it/s][Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    6.5s finished
+
+  - Signal filtré: 100.0 Hz
+  - Extraction des caractéristiques pour 2820 époques x 7 canaux...
+
+  - Préparation des données pour le clustering...
+  - Normalisation des données...
+  - Démarrage du benchmark...
+
+  - Test de UMAP...
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+  - Extraction des features:   4%|▍         | 870/19740 [01:30<33:38,  9.35it/s]
+
+    - Test de KMeans... ⚠️ Cluster 0: 491 samples, aucun label valide trouvé.
+    📊 Cluster 1: 737 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 2: 487 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 422 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 619 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 42 samples, aucun label valide trouvé.
+    📊 Cluster 1: 737 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 2: 15 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 22 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 1084 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 28 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 28 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 9: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 10: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 11: 114 samples, aucun label valide trouvé.
+⚠️ Cluster 12: 24 samples, aucun label valide trouvé.
+⚠️ Cluster 13: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 14: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 15: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 16: 35 samples, aucun label valide trouvé.
+⚠️ Cluster 17: 52 samples, aucun label valide trouvé.
+⚠️ Cluster 18: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 19: 41 samples, aucun label valide trouvé.
+⚠️ Cluster 20: 19 samples, aucun label valide trouvé.
+⚠️ Cluster 21: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 22: 22 samples, aucun label valide trouvé.
+⚠️ Cluster 23: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 24: 41 samples, aucun label valide trouvé.
+⚠️ Cluster 25: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 26: 17 samples, aucun label valide trouvé.
+⚠️ Cluster 27: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 28: 15 samples, aucun label valide trouvé.
+⚠️ Cluster 29: 50 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de PCA...
+    - Test de KMeans...     📊 Cluster 0: 750 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 382 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 1102 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 262 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 260 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 1102 samples, aucun label valide trouvé.
+    📊 Cluster 1: 733 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 2: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 25 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 33 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 15 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 93 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 9: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 10: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 11: 45 samples, aucun label valide trouvé.
+⚠️ Cluster 12: 66 samples, aucun label valide trouvé.
+⚠️ Cluster 13: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 14: 28 samples, aucun label valide trouvé.
+⚠️ Cluster 15: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 16: 23 samples, aucun label valide trouvé.
+⚠️ Cluster 17: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 18: 74 samples, aucun label valide trouvé.
+⚠️ Cluster 19: 37 samples, aucun label valide trouvé.
+⚠️ Cluster 20: 41 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de None...
+    - Test de KMeans...     📊 Cluster 0: 763 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 400 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 1102 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 122 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 369 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+  - Extraction des features:   5%|▍         | 918/19740 [01:36<34:41,  9.04it/s]
+
+⚠️ Cluster 0: 701 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 675 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 1030 samples, aucun label valide trouvé.
+✓
+
+Traitement des fichiers:   4%|▍         | 6/152 [1:47:18<36:41:39, 904.79s/it] 
+
+
+Traitement du fichier: SC4032E0-PSG.edf
+
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:   5%|▌         | 1081/19740 [01:53<32:58,  9.43it/s]<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Header information is incorrect for record length. Default record length set to 1.
+It is possible that this file only contains annotations and no signals. In that case, please use mne.read_annotations() to load these annotations.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Omitted 122 annotation(s) that were outside data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+
+Not setting metadata
+2732 matching events found
+No baseline correction applied
+0 projection items activated
+Using data from preloaded Raw for 2732 events and 3000 original time points ...
+0 bad epochs dropped
+✅ Données chargées: 2732 époques, 7 canaux
+
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:   6%|▌         | 1189/19740 [02:05<34:52,  8.87it/s]
+
+  - Données chargées: 2732 époques, 7 canaux
+  - Filtrage du signal...
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 1 - 40 Hz
+
+FIR filter parameters
+---------------------
+Designing a one-pass, zero-phase, non-causal bandpass filter:
+- Windowed time-domain design (firwin) method
+- Hamming window with 0.0194 passband ripple and 53 dB stopband attenuation
+- Lower passband edge: 1.00
+- Lower transition bandwidth: 1.00 Hz (-6 dB cutoff frequency: 0.50 Hz)
+- Upper passband edge: 40.00 Hz
+- Upper transition bandwidth: 10.00 Hz (-6 dB cutoff frequency: 45.00 Hz)
+- Filter length: 331 samples (3.310 s)
+
+  - Extraction des features:   6%|▋         | 1246/19740 [02:10<32:23,  9.51it/s][Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    3.5s finished
+
+  - Signal filtré: 100.0 Hz
+  - Extraction des caractéristiques pour 2732 époques x 7 canaux...
+
+  - Préparation des données pour le clustering...
+  - Normalisation des données...
+  - Démarrage du benchmark...
+
+  - Test de UMAP...
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+  - Extraction des features:  97%|█████████▋| 18588/19124 [32:05<00:55,  9.70it/s]
+
+    - Test de KMeans... ⚠️ Cluster 0: 532 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 597 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 792 samples, aucun label valide trouvé.
+    📊 Cluster 3: 394 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 4: 505 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 792 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 1102 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 23 samples, aucun label valide trouvé.
+    📊 Cluster 3: 903 samples (valid: 1), majority label = 0 (1 samples)
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de PCA...
+    - Test de KMeans... 
+
+  - Extraction des features:  97%|█████████▋| 18638/19124 [32:11<00:53,  9.13it/s]
+
+⚠️ Cluster 0: 795 samples, aucun label valide trouvé.
+    📊 Cluster 1: 398 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 2: 1101 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 137 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 389 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 1101 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 791 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 919 samples, aucun label valide trouvé.
+✓
+
+  - Test de None...
+    - Test de KMeans...     📊 Cluster 0: 412 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 1101 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 795 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 150 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 362 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 697 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 1017 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 610 samples, aucun label valide trouvé.
+✓
+
+Traitement des fichiers:   5%|▍         | 7/152 [2:20:13<50:32:12, 1254.70s/it]
+
+
+Traitement du fichier: SC4041E0-PSG.edf
+
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:  98%|█████████▊| 18741/19124 [32:22<00:41,  9.13it/s]<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Header information is incorrect for record length. Default record length set to 1.
+It is possible that this file only contains annotations and no signals. In that case, please use mne.read_annotations() to load these annotations.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Omitted 160 annotation(s) that were outside data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+
+Not setting metadata
+2570 matching events found
+No baseline correction applied
+0 projection items activated
+Using data from preloaded Raw for 2570 events and 3000 original time points ...
+0 bad epochs dropped
+✅ Données chargées: 2570 époques, 7 canaux
+
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:  99%|█████████▊| 18847/19124 [32:32<00:28,  9.87it/s]
+
+  - Données chargées: 2570 époques, 7 canaux
+  - Filtrage du signal...
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 1 - 40 Hz
+
+FIR filter parameters
+---------------------
+Designing a one-pass, zero-phase, non-causal bandpass filter:
+- Windowed time-domain design (firwin) method
+- Hamming window with 0.0194 passband ripple and 53 dB stopband attenuation
+- Lower passband edge: 1.00
+- Lower transition bandwidth: 1.00 Hz (-6 dB cutoff frequency: 0.50 Hz)
+- Upper passband edge: 40.00 Hz
+- Upper transition bandwidth: 10.00 Hz (-6 dB cutoff frequency: 45.00 Hz)
+- Filter length: 331 samples (3.310 s)
+
+[Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    4.9s finished
+
+  - Signal filtré: 100.0 Hz
+  - Extraction des caractéristiques pour 2570 époques x 7 canaux...
+
+  - Préparation des données pour le clustering...
+  - Normalisation des données...
+  - Démarrage du benchmark...
+
+  - Test de UMAP...
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+  - Extraction des features:   2%|▏         | 350/17990 [00:35<30:54,  9.51it/s]
+
+    - Test de KMeans... 
+
+  - Extraction des features:   2%|▏         | 406/17990 [00:40<29:19,  9.99it/s]
+
+⚠️ Cluster 0: 793 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 518 samples, aucun label valide trouvé.
+    📊 Cluster 2: 741 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 3: 514 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 166 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 793 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 59 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 25 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 33 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 45 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 15 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 9: 21 samples, aucun label valide trouvé.
+⚠️ Cluster 10: 51 samples, aucun label valide trouvé.
+⚠️ Cluster 11: 99 samples, aucun label valide trouvé.
+⚠️ Cluster 12: 28 samples, aucun label valide trouvé.
+⚠️ Cluster 13: 27 samples, aucun label valide trouvé.
+⚠️ Cluster 14: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 15: 21 samples, aucun label valide trouvé.
+⚠️ Cluster 16: 49 samples, aucun label valide trouvé.
+⚠️ Cluster 17: 25 samples, aucun label valide trouvé.
+⚠️ Cluster 18: 48 samples, aucun label valide trouvé.
+⚠️ Cluster 19: 15 samples, aucun label valide trouvé.
+⚠️ Cluster 20: 17 samples, aucun label valide trouvé.
+⚠️ Cluster 21: 252 samples, aucun label valide trouvé.
+⚠️ Cluster 22: 36 samples, aucun label valide trouvé.
+⚠️ Cluster 23: 25 samples, aucun label valide trouvé.
+⚠️ Cluster 24: 58 samples, aucun label valide trouvé.
+⚠️ Cluster 25: 23 samples, aucun label valide trouvé.
+⚠️ Cluster 26: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 27: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 28: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 29: 47 samples, aucun label valide trouvé.
+⚠️ Cluster 30: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 31: 11 samples, aucun label valide trouvé.
+    📊 Cluster 32: 28 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 33: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 34: 40 samples, aucun label valide trouvé.
+⚠️ Cluster 35: 20 samples, aucun label valide trouvé.
+⚠️ Cluster 36: 17 samples, aucun label valide trouvé.
+⚠️ Cluster 37: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 38: 119 samples, aucun label valide trouvé.
+⚠️ Cluster 39: 23 samples, aucun label valide trouvé.
+⚠️ Cluster 40: 72 samples, aucun label valide trouvé.
+⚠️ Cluster 41: 50 samples, aucun label valide trouvé.
+⚠️ Cluster 42: 24 samples, aucun label valide trouvé.
+⚠️ Cluster 43: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 44: 63 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de PCA...
+    - Test de KMeans...     📊 Cluster 0: 1715 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 652 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 2 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 24 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 339 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 16 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 15 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 218 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 104 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 9: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 10: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 11: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 12: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 13: 17 samples, aucun label valide trouvé.
+⚠️ Cluster 14: 112 samples, aucun label valide trouvé.
+⚠️ Cluster 15: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 16: 123 samples, aucun label valide trouvé.
+⚠️ Cluster 17: 42 samples, aucun label valide trouvé.
+⚠️ Cluster 18: 27 samples, aucun label valide trouvé.
+    📊 Cluster 19: 1266 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 20: 12 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de None...
+    - Test de KMeans...     📊 Cluster 0: 924 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 2 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 964 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 814 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 28 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+  - Extraction des features:   3%|▎         | 457/17990 [00:48<34:10,  8.55it/s]
+
+⚠️ Cluster 0: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 33 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 613 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 16 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 301 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 29 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 424 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 24 samples, aucun label valide trouvé.
+✓
+
+Traitement des fichiers:   5%|▌         | 8/152 [2:21:28<35:10:05, 879.20s/it] 
+
+
+Traitement du fichier: SC4042E0-PSG.edf
+
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:   3%|▎         | 571/17990 [00:58<29:34,  9.82it/s]<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Header information is incorrect for record length. Default record length set to 1.
+It is possible that this file only contains annotations and no signals. In that case, please use mne.read_annotations() to load these annotations.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Omitted 177 annotation(s) that were outside data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+
+Not setting metadata
+2792 matching events found
+No baseline correction applied
+0 projection items activated
+Using data from preloaded Raw for 2792 events and 3000 original time points ...
+0 bad epochs dropped
+✅ Données chargées: 2792 époques, 7 canaux
+
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:   4%|▍         | 680/17990 [01:10<30:20,  9.51it/s]
+
+  - Données chargées: 2792 époques, 7 canaux
+  - Filtrage du signal...
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 1 - 40 Hz
+
+FIR filter parameters
+---------------------
+Designing a one-pass, zero-phase, non-causal bandpass filter:
+- Windowed time-domain design (firwin) method
+- Hamming window with 0.0194 passband ripple and 53 dB stopband attenuation
+- Lower passband edge: 1.00
+- Lower transition bandwidth: 1.00 Hz (-6 dB cutoff frequency: 0.50 Hz)
+- Upper passband edge: 40.00 Hz
+- Upper transition bandwidth: 10.00 Hz (-6 dB cutoff frequency: 45.00 Hz)
+- Filter length: 331 samples (3.310 s)
+
+[Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    3.6s finished
+
+  - Signal filtré: 100.0 Hz
+  - Extraction des caractéristiques pour 2792 époques x 7 canaux...
+
+  - Préparation des données pour le clustering...
+  - Normalisation des données...
+  - Démarrage du benchmark...
+
+  - Test de UMAP...
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+  - Extraction des features:  89%|████████▉ | 17364/19544 [29:58<04:04,  8.90it/s]
+
+    - Test de KMeans...     📊 Cluster 0: 732 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 445 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 618 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 287 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 488 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+    📊 Cluster 0: 732 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 23 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 35 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 28 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 30 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 17 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 20 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 21 samples, aucun label valide trouvé.
+⚠️ Cluster 9: 31 samples, aucun label valide trouvé.
+⚠️ Cluster 10: 27 samples, aucun label valide trouvé.
+⚠️ Cluster 11: 24 samples, aucun label valide trouvé.
+⚠️ Cluster 12: 23 samples, aucun label valide trouvé.
+⚠️ Cluster 13: 22 samples, aucun label valide trouvé.
+⚠️ Cluster 14: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 15: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 16: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 17: 21 samples, aucun label valide trouvé.
+⚠️ Cluster 18: 33 samples, aucun label valide trouvé.
+⚠️ Cluster 19: 32 samples, aucun label valide trouvé.
+⚠️ Cluster 20: 22 samples, aucun label valide trouvé.
+⚠️ Cluster 21: 59 samples, aucun label valide trouvé.
+⚠️ Cluster 22: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 23: 39 samples, aucun label valide trouvé.
+⚠️ Cluster 24: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 25: 37 samples, aucun label valide trouvé.
+⚠️ Cluster 26: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 27: 22 samples, aucun label valide trouvé.
+⚠️ Cluster 28: 28 samples, aucun label valide trouvé.
+⚠️ Cluster 29: 24 samples, aucun label valide trouvé.
+⚠️ Cluster 30: 19 samples, aucun label valide trouvé.
+⚠️ Cluster 31: 34 samples, aucun label valide trouvé.
+⚠️ Cluster 32: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 33: 30 samples, aucun label valide trouvé.
+⚠️ Cluster 34: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 35: 30 samples, aucun label valide trouvé.
+⚠️ Cluster 36: 23 samples, aucun label valide trouvé.
+⚠️ Cluster 37: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 38: 31 samples, aucun label valide trouvé.
+⚠️ Cluster 39: 50 samples, aucun label valide trouvé.
+⚠️ Cluster 40: 48 samples, aucun label valide trouvé.
+⚠️ Cluster 41: 23 samples, aucun label valide trouvé.
+⚠️ Cluster 42: 17 samples, aucun label valide trouvé.
+⚠️ Cluster 43: 31 samples, aucun label valide trouvé.
+⚠️ Cluster 44: 27 samples, aucun label valide trouvé.
+⚠️ Cluster 45: 72 samples, aucun label valide trouvé.
+⚠️ Cluster 46: 19 samples, aucun label valide trouvé.
+⚠️ Cluster 47: 17 samples, aucun label valide trouvé.
+⚠️ Cluster 48: 16 samples, aucun label valide trouvé.
+⚠️ Cluster 49: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 50: 25 samples, aucun label valide trouvé.
+⚠️ Cluster 51: 52 samples, aucun label valide trouvé.
+⚠️ Cluster 52: 31 samples, aucun label valide trouvé.
+⚠️ Cluster 53: 20 samples, aucun label valide trouvé.
+⚠️ Cluster 54: 41 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de PCA...
+    - Test de KMeans... ⚠️ Cluster 0: 167 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 727 samples, aucun label valide trouvé.
+    📊 Cluster 2: 776 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 3: 648 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 252 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 26 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 135 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 22 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 621 samples, aucun label valide trouvé.
+    📊 Cluster 5: 703 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 6: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 47 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 9: 20 samples, aucun label valide trouvé.
+⚠️ Cluster 10: 41 samples, aucun label valide trouvé.
+⚠️ Cluster 11: 32 samples, aucun label valide trouvé.
+⚠️ Cluster 12: 37 samples, aucun label valide trouvé.
+⚠️ Cluster 13: 58 samples, aucun label valide trouvé.
+⚠️ Cluster 14: 16 samples, aucun label valide trouvé.
+⚠️ Cluster 15: 34 samples, aucun label valide trouvé.
+⚠️ Cluster 16: 21 samples, aucun label valide trouvé.
+⚠️ Cluster 17: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 18: 22 samples, aucun label valide trouvé.
+⚠️ Cluster 19: 32 samples, aucun label valide trouvé.
+⚠️ Cluster 20: 128 samples, aucun label valide trouvé.
+⚠️ Cluster 21: 15 samples, aucun label valide trouvé.
+⚠️ Cluster 22: 19 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de None...
+    - Test de KMeans... ⚠️ Cluster 0: 343 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 782 samples, aucun label valide trouvé.
+    📊 Cluster 2: 762 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 3: 621 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 62 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+  - Extraction des features:  89%|████████▉ | 17411/19544 [30:03<03:56,  9.01it/s]
+
+⚠️ Cluster 0: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 570 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 581 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 377 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 21 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 40 samples, aucun label valide trouvé.
+✓
+
+Traitement des fichiers:   6%|▌         | 9/152 [2:52:02<46:47:02, 1177.78s/it]
+
+
+Traitement du fichier: SC4051E0-PSG.edf
+
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:  90%|█████████ | 17662/19544 [30:31<03:35,  8.72it/s]<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Header information is incorrect for record length. Default record length set to 1.
+It is possible that this file only contains annotations and no signals. In that case, please use mne.read_annotations() to load these annotations.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Omitted 129 annotation(s) that were outside data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+
+Not setting metadata
+2722 matching events found
+No baseline correction applied
+0 projection items activated
+Using data from preloaded Raw for 2722 events and 3000 original time points ...
+0 bad epochs dropped
+✅ Données chargées: 2722 époques, 7 canaux
+
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:  92%|█████████▏| 17918/19544 [31:01<02:56,  9.19it/s]
+
+  - Données chargées: 2722 époques, 7 canaux
+  - Filtrage du signal...
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 1 - 40 Hz
+
+FIR filter parameters
+---------------------
+Designing a one-pass, zero-phase, non-causal bandpass filter:
+- Windowed time-domain design (firwin) method
+- Hamming window with 0.0194 passband ripple and 53 dB stopband attenuation
+- Lower passband edge: 1.00
+- Lower transition bandwidth: 1.00 Hz (-6 dB cutoff frequency: 0.50 Hz)
+- Upper passband edge: 40.00 Hz
+- Upper transition bandwidth: 10.00 Hz (-6 dB cutoff frequency: 45.00 Hz)
+- Filter length: 331 samples (3.310 s)
+
+  - Extraction des features:  92%|█████████▏| 17966/19544 [31:06<02:55,  8.98it/s][Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    4.0s finished
+
+  - Signal filtré: 100.0 Hz
+  - Extraction des caractéristiques pour 2722 époques x 7 canaux...
+
+  - Préparation des données pour le clustering...
+  - Normalisation des données...
+  - Démarrage du benchmark...
+
+  - Test de UMAP...
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+  - Extraction des features:   9%|▊         | 1644/19054 [02:52<30:05,  9.64it/s]
+
+    - Test de KMeans... ⚠️ Cluster 0: 261 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 784 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 634 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 357 samples, aucun label valide trouvé.
+    📊 Cluster 4: 756 samples (valid: 1), majority label = 0 (1 samples)
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+    📊 Cluster 0: 1017 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 634 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 80 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 32 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 46 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 20 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 20 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 34 samples, aucun label valide trouvé.
+⚠️ Cluster 9: 19 samples, aucun label valide trouvé.
+⚠️ Cluster 10: 17 samples, aucun label valide trouvé.
+⚠️ Cluster 11: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 12: 60 samples, aucun label valide trouvé.
+⚠️ Cluster 13: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 14: 36 samples, aucun label valide trouvé.
+⚠️ Cluster 15: 40 samples, aucun label valide trouvé.
+⚠️ Cluster 16: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 17: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 18: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 19: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 20: 31 samples, aucun label valide trouvé.
+⚠️ Cluster 21: 21 samples, aucun label valide trouvé.
+⚠️ Cluster 22: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 23: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 24: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 25: 34 samples, aucun label valide trouvé.
+⚠️ Cluster 26: 72 samples, aucun label valide trouvé.
+⚠️ Cluster 27: 19 samples, aucun label valide trouvé.
+⚠️ Cluster 28: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 29: 20 samples, aucun label valide trouvé.
+⚠️ Cluster 30: 21 samples, aucun label valide trouvé.
+⚠️ Cluster 31: 19 samples, aucun label valide trouvé.
+⚠️ Cluster 32: 25 samples, aucun label valide trouvé.
+⚠️ Cluster 33: 21 samples, aucun label valide trouvé.
+⚠️ Cluster 34: 18 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de PCA...
+    - Test de KMeans... ⚠️ Cluster 0: 685 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 298 samples, aucun label valide trouvé.
+    📊 Cluster 2: 1018 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 3: 150 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 641 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+    📊 Cluster 0: 1017 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 630 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 24 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 9: 25 samples, aucun label valide trouvé.
+⚠️ Cluster 10: 36 samples, aucun label valide trouvé.
+⚠️ Cluster 11: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 12: 41 samples, aucun label valide trouvé.
+⚠️ Cluster 13: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 14: 24 samples, aucun label valide trouvé.
+⚠️ Cluster 15: 19 samples, aucun label valide trouvé.
+⚠️ Cluster 16: 27 samples, aucun label valide trouvé.
+⚠️ Cluster 17: 101 samples, aucun label valide trouvé.
+⚠️ Cluster 18: 20 samples, aucun label valide trouvé.
+⚠️ Cluster 19: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 20: 21 samples, aucun label valide trouvé.
+⚠️ Cluster 21: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 22: 133 samples, aucun label valide trouvé.
+⚠️ Cluster 23: 119 samples, aucun label valide trouvé.
+⚠️ Cluster 24: 11 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de None...
+    - Test de KMeans... 
+
+  - Extraction des features:   9%|▉         | 1693/19054 [02:59<33:24,  8.66it/s]
+
+    📊 Cluster 0: 1018 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 306 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 170 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 665 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 633 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 946 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 489 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 24 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 26 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 155 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 30 samples, aucun label valide trouvé.
+✓
+
+Traitement du fichier: SC4052E0-PSG.edf
+
+Traitement des fichiers:   7%|▋         | 10/152 [2:56:14<35:10:37, 891.82s/it]
+
+
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:   9%|▉         | 1795/19054 [03:09<30:30,  9.43it/s]<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Header information is incorrect for record length. Default record length set to 1.
+It is possible that this file only contains annotations and no signals. In that case, please use mne.read_annotations() to load these annotations.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Omitted 138 annotation(s) that were outside data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+
+Not setting metadata
+2806 matching events found
+No baseline correction applied
+0 projection items activated
+Using data from preloaded Raw for 2806 events and 3000 original time points ...
+0 bad epochs dropped
+✅ Données chargées: 2806 époques, 7 canaux
+
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:  10%|▉         | 1844/19054 [03:15<30:29,  9.41it/s]
+
+  - Données chargées: 2806 époques, 7 canaux
+  - Filtrage du signal...
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 1 - 40 Hz
+
+FIR filter parameters
+---------------------
+Designing a one-pass, zero-phase, non-causal bandpass filter:
+- Windowed time-domain design (firwin) method
+- Hamming window with 0.0194 passband ripple and 53 dB stopband attenuation
+- Lower passband edge: 1.00
+- Lower transition bandwidth: 1.00 Hz (-6 dB cutoff frequency: 0.50 Hz)
+- Upper passband edge: 40.00 Hz
+- Upper transition bandwidth: 10.00 Hz (-6 dB cutoff frequency: 45.00 Hz)
+- Filter length: 331 samples (3.310 s)
+
+  - Extraction des features:  10%|▉         | 1892/19054 [03:21<32:08,  8.90it/s][Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    3.8s finished
+
+  - Signal filtré: 100.0 Hz
+  - Extraction des caractéristiques pour 2806 époques x 7 canaux...
+
+  - Préparation des données pour le clustering...
+  - Normalisation des données...
+  - Démarrage du benchmark...
+
+  - Test de UMAP...
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+  - Extraction des features:  87%|████████▋ | 17124/19642 [29:54<04:38,  9.04it/s]
+
+    - Test de KMeans... ⚠️ Cluster 0: 378 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 544 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 811 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 477 samples, aucun label valide trouvé.
+    📊 Cluster 4: 512 samples (valid: 1), majority label = 0 (1 samples)
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 546 samples, aucun label valide trouvé.
+    📊 Cluster 1: 510 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 2: 134 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 27 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 47 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 63 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 731 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 49 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 26 samples, aucun label valide trouvé.
+⚠️ Cluster 9: 29 samples, aucun label valide trouvé.
+⚠️ Cluster 10: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 11: 136 samples, aucun label valide trouvé.
+⚠️ Cluster 12: 22 samples, aucun label valide trouvé.
+⚠️ Cluster 13: 23 samples, aucun label valide trouvé.
+⚠️ Cluster 14: 43 samples, aucun label valide trouvé.
+⚠️ Cluster 15: 20 samples, aucun label valide trouvé.
+⚠️ Cluster 16: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 17: 64 samples, aucun label valide trouvé.
+⚠️ Cluster 18: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 19: 26 samples, aucun label valide trouvé.
+⚠️ Cluster 20: 17 samples, aucun label valide trouvé.
+⚠️ Cluster 21: 17 samples, aucun label valide trouvé.
+⚠️ Cluster 22: 37 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de PCA...
+    - Test de KMeans... 
+
+  - Extraction des features:  87%|████████▋ | 17173/19642 [30:00<04:29,  9.15it/s]
+
+    📊 Cluster 0: 1529 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 47 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 14 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 222 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 910 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 15 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 74 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 17 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 19 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 16 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 20 samples, aucun label valide trouvé.
+    📊 Cluster 9: 2257 samples (valid: 1), majority label = 0 (1 samples)
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de None...
+    - Test de KMeans... ⚠️ Cluster 0: 573 samples, aucun label valide trouvé.
+    📊 Cluster 1: 1057 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 2: 227 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 827 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 38 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+  - Extraction des features:  88%|████████▊ | 17220/19642 [30:06<04:44,  8.50it/s]
+
+⚠️ Cluster 0: 124 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 76 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 788 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 31 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 16 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 422 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 27 samples, aucun label valide trouvé.
+✓
+
+Traitement des fichiers:   7%|▋         | 11/152 [3:26:41<46:08:45, 1178.20s/it]
+
+
+Traitement du fichier: SC4061E0-PSG.edf
+
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:  88%|████████▊ | 17327/19642 [30:16<04:04,  9.46it/s]<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Header information is incorrect for record length. Default record length set to 1.
+It is possible that this file only contains annotations and no signals. In that case, please use mne.read_annotations() to load these annotations.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Omitted 77 annotation(s) that were outside data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+
+Not setting metadata
+2770 matching events found
+No baseline correction applied
+0 projection items activated
+Using data from preloaded Raw for 2770 events and 3000 original time points ...
+0 bad epochs dropped
+✅ Données chargées: 2770 époques, 7 canaux
+
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:  88%|████████▊ | 17376/19642 [30:23<04:15,  8.89it/s]
+
+  - Données chargées: 2770 époques, 7 canaux
+  - Filtrage du signal...
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 1 - 40 Hz
+
+FIR filter parameters
+---------------------
+Designing a one-pass, zero-phase, non-causal bandpass filter:
+- Windowed time-domain design (firwin) method
+- Hamming window with 0.0194 passband ripple and 53 dB stopband attenuation
+- Lower passband edge: 1.00
+- Lower transition bandwidth: 1.00 Hz (-6 dB cutoff frequency: 0.50 Hz)
+- Upper passband edge: 40.00 Hz
+- Upper transition bandwidth: 10.00 Hz (-6 dB cutoff frequency: 45.00 Hz)
+- Filter length: 331 samples (3.310 s)
+
+  - Extraction des features:  89%|████████▊ | 17432/19642 [30:28<03:52,  9.49it/s][Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    3.8s finished
+
+  - Signal filtré: 100.0 Hz
+  - Extraction des caractéristiques pour 2770 époques x 7 canaux...
+
+  - Préparation des données pour le clustering...
+  - Normalisation des données...
+  - Démarrage du benchmark...
+
+  - Test de UMAP...
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+  - Extraction des features:  12%|█▏        | 2308/19390 [03:59<30:48,  9.24it/s]
+
+    - Test de KMeans... ⚠️ Cluster 0: 234 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 670 samples, aucun label valide trouvé.
+    📊 Cluster 2: 991 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 3: 238 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 673 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+    📊 Cluster 0: 991 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 238 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 25 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 72 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 44 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 23 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 80 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 15 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 9: 46 samples, aucun label valide trouvé.
+⚠️ Cluster 10: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 11: 24 samples, aucun label valide trouvé.
+⚠️ Cluster 12: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 13: 28 samples, aucun label valide trouvé.
+⚠️ Cluster 14: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 15: 41 samples, aucun label valide trouvé.
+⚠️ Cluster 16: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 17: 24 samples, aucun label valide trouvé.
+⚠️ Cluster 18: 15 samples, aucun label valide trouvé.
+⚠️ Cluster 19: 29 samples, aucun label valide trouvé.
+⚠️ Cluster 20: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 21: 23 samples, aucun label valide trouvé.
+⚠️ Cluster 22: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 23: 37 samples, aucun label valide trouvé.
+⚠️ Cluster 24: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 25: 78 samples, aucun label valide trouvé.
+⚠️ Cluster 26: 46 samples, aucun label valide trouvé.
+⚠️ Cluster 27: 35 samples, aucun label valide trouvé.
+⚠️ Cluster 28: 16 samples, aucun label valide trouvé.
+⚠️ Cluster 29: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 30: 30 samples, aucun label valide trouvé.
+⚠️ Cluster 31: 52 samples, aucun label valide trouvé.
+⚠️ Cluster 32: 93 samples, aucun label valide trouvé.
+⚠️ Cluster 33: 41 samples, aucun label valide trouvé.
+⚠️ Cluster 34: 22 samples, aucun label valide trouvé.
+⚠️ Cluster 35: 45 samples, aucun label valide trouvé.
+⚠️ Cluster 36: 20 samples, aucun label valide trouvé.
+⚠️ Cluster 37: 36 samples, aucun label valide trouvé.
+⚠️ Cluster 38: 12 samples, aucun label valide trouvé.
+⚠️ Cluster 39: 23 samples, aucun label valide trouvé.
+⚠️ Cluster 40: 45 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+
+  - Test de PCA...
+
+  - Extraction des features:  12%|█▏        | 2361/19390 [04:04<29:40,  9.57it/s]
+
+    - Test de KMeans... ⚠️ Cluster 0: 1350 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 2 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 208 samples, aucun label valide trouvé.
+    📊 Cluster 3: 1039 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 4: 207 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+
+⚠️ Cluster 0: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 35 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 109 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 59 samples, aucun label valide trouvé.
+⚠️ Cluster 5: 22 samples, aucun label valide trouvé.
+⚠️ Cluster 6: 75 samples, aucun label valide trouvé.
+⚠️ Cluster 7: 1000 samples, aucun label valide trouvé.
+⚠️ Cluster 8: 13 samples, aucun label valide trouvé.
+⚠️ Cluster 9: 23 samples, aucun label valide trouvé.
+⚠️ Cluster 10: 20 samples, aucun label valide trouvé.
+⚠️ Cluster 11: 16 samples, aucun label valide trouvé.
+⚠️ Cluster 12: 10 samples, aucun label valide trouvé.
+⚠️ Cluster 13: 19 samples, aucun label valide trouvé.
+⚠️ Cluster 14: 11 samples, aucun label valide trouvé.
+⚠️ Cluster 15: 119 samples, aucun label valide trouvé.
+⚠️ Cluster 16: 18 samples, aucun label valide trouvé.
+⚠️ Cluster 17: 642 samples, aucun label valide trouvé.
+✓
+
+  - Test de None...
+    - Test de KMeans...     📊 Cluster 0: 1028 samples (valid: 1), majority label = 0 (1 samples)
+⚠️ Cluster 1: 2 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 244 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 688 samples, aucun label valide trouvé.
+⚠️ Cluster 4: 844 samples, aucun label valide trouvé.
+
+/usr/local/lib/python3.11/dist-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+✓
+    - Test de HDBSCAN... 
+
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/utils/deprecation.py:151: FutureWarning: 'force_all_finite' was renamed to 'ensure_all_finite' in 1.6 and will be removed in 1.8.
+  warnings.warn(
+  - Extraction des features:  12%|█▏        | 2410/19390 [04:11<32:32,  8.70it/s]
+
+⚠️ Cluster 0: 149 samples, aucun label valide trouvé.
+⚠️ Cluster 1: 32 samples, aucun label valide trouvé.
+⚠️ Cluster 2: 2149 samples, aucun label valide trouvé.
+⚠️ Cluster 3: 16 samples, aucun label valide trouvé.
+✓
+
+Traitement des fichiers:   8%|▊         | 12/152 [3:31:22<35:11:57, 905.12s/it] 
+
+
+Traitement du fichier: SC4062E0-PSG.edf
+
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:180: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:  13%|█▎        | 2461/19390 [04:16<31:04,  9.08it/s]<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Header information is incorrect for record length. Default record length set to 1.
+It is possible that this file only contains annotations and no signals. In that case, please use mne.read_annotations() to load these annotations.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Omitted 97 annotation(s) that were outside data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:187: RuntimeWarning: Limited 1 annotation(s) that were expanding outside the data range.
+  raw_annot = mne.io.read_raw_edf(hypnogram_path, preload=True, verbose=False)
+
+Not setting metadata
+2830 matching events found
+No baseline correction applied
+0 projection items activated
+Using data from preloaded Raw for 2830 events and 3000 original time points ...
+0 bad epochs dropped
+✅ Données chargées: 2830 époques, 7 canaux
+
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different highpass filters. Highest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:  13%|█▎        | 2519/19390 [04:21<28:52,  9.74it/s]<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Channels contain different lowpass filters. Lowest filter setting will be stored.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+<ipython-input-6-96926fef9f77>:248: RuntimeWarning: Highpass cutoff frequency 16.0 is greater than lowpass cutoff frequency 0.7, setting values to 0 and Nyquist.
+  raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
+  - Extraction des features:  13%|█▎        | 2569/19390 [04:27<31:02,  9.03it/s]
+
+  - Données chargées: 2830 époques, 7 canaux
+  - Filtrage du signal...
+Filtering raw data in 1 contiguous segment
+Setting up band-pass filter from 1 - 40 Hz
+
+FIR filter parameters
+---------------------
+Designing a one-pass, zero-phase, non-causal bandpass filter:
+- Windowed time-domain design (firwin) method
+- Hamming window with 0.0194 passband ripple and 53 dB stopband attenuation
+- Lower passband edge: 1.00
+- Lower transition bandwidth: 1.00 Hz (-6 dB cutoff frequency: 0.50 Hz)
+- Upper passband edge: 40.00 Hz
+- Upper transition bandwidth: 10.00 Hz (-6 dB cutoff frequency: 45.00 Hz)
+- Filter length: 331 samples (3.310 s)
+
+  - Extraction des features:  13%|█▎        | 2617/19390 [04:32<30:33,  9.15it/s][Parallel(n_jobs=1)]: Done   7 out of   7 | elapsed:    3.7s finished
+
+  - Signal filtré: 100.0 Hz
+  - Extraction des caractéristiques pour 2830 époques x 7 canaux...
+
+  - Extraction des features:  54%|█████▍    | 10705/19810 [18:40<16:09,  9.39it/s]
+

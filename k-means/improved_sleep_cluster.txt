@@ -1,0 +1,28 @@
+Résumé des changements :
+✅ Features ajoutées par canal :
+
+moyenne
+
+std
+
+skewness
+
+kurtosis
+
+Higuchi fractal dimension
+
+DFA
+
+✅ Bandes ajoutées :
+
+Sigma (12-15 Hz)
+
+Gamma (30-50 Hz)
+
+✅ UMAP optimisé :
+
+n_neighbors=50
+
+min_dist=0.05
+
+metric='cosine'
