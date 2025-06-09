@@ -28,6 +28,8 @@ from mne import Epochs, events_from_annotations
 from mne.io import read_raw_edf
 import multiprocessing
 from concurrent.futures import ProcessPoolExecutor, as_completed
+import ast
+import seaborn as sns
 
 # Configuration du logging
 logging.basicConfig(
@@ -40,7 +42,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Contexte pour supprimer temporairement les sorties (thread-safe)
+# Contexte pour supprimer temporairement les sorties (thread-safe) 
 class SuppressOutput:
     def __init__(self):
         self._devnull = None
@@ -49,7 +51,8 @@ class SuppressOutput:
         self._original_stderr = None
         self._lock = threading.Lock()
         self._refcount = 0
-    
+        self._original_showwarning = warnings.showwarning
+
     def __enter__(self):
         with self._lock:
             if self._refcount == 0:
@@ -58,25 +61,30 @@ class SuppressOutput:
                 self._devnull = open(os.devnull, 'w')
                 sys.stdout = self._devnull
                 sys.stderr = self._devnull
-            
+                warnings.showwarning = lambda *args, **kwargs: None  # suppress warnings
+
             self._refcount += 1
             self._active = True
         return self
-    
+
     def __exit__(self, exc_type, exc_val, exc_tb):
         with self._lock:
             if not self._active:
                 return False
-            
+
             self._refcount -= 1
             self._active = False
-            
+
             if self._refcount == 0 and self._original_stdout:
                 sys.stdout = self._original_stdout
                 sys.stderr = self._original_stderr
                 if self._devnull:
                     self._devnull.close()
                     self._devnull = None
+
+                # Restore warnings
+                warnings.showwarning = self._original_showwarning
+
         return False
 
 # GPU imports
@@ -86,6 +94,9 @@ try:
     from cuml import UMAP as cuUMAP
     from cuml.cluster import KMeans as cuKMeans
     GPU_AVAILABLE = True
+    from cuml.internals.logger import LoggerLevel
+    cuml.internals.logger.set_level(LoggerLevel.ERROR)
+
 except ImportError:
     print("Warning: GPU libraries not available. Falling back to CPU.")
     import numpy as cp  # Fallback to numpy
@@ -132,7 +143,7 @@ def process_channel(ch, sf, bands, ch_ref=None, position_norm=None):
                     
         except Exception as e:
             logger.error(f"Erreur de validation des données d'entrée: {e}", exc_info=True)
-            expected_size = 6 + len(bands) + 3 + (1 if position_norm is not None else 0)
+            expected_size = 6 + len(bands) + 3 + 2 + (1 if position_norm is not None else 0)
             return [0.0] * expected_size
     
     # Forcer l'initialisation du contexte CUDA si nécessaire
@@ -193,7 +204,7 @@ def process_channel(ch, sf, bands, ch_ref=None, position_norm=None):
         except Exception as e:
             print(f"Erreur dans l'analyse spectrale: {e}")
             # Retourner un vecteur de zéros de la bonne taille
-            expected_size = 6 + len(bands) + 3 + (1 if position_norm is not None else 0)
+            expected_size = 6 + len(bands) + 3 + 2 + (1 if position_norm is not None else 0)
             return [0.0] * expected_size
             
         # Ajouter les bandes de fréquence
@@ -206,7 +217,7 @@ def process_channel(ch, sf, bands, ch_ref=None, position_norm=None):
                 features.append(0.0)
         
         # 3. Cohérence avec un autre canal (si fourni et activé)
-        ENABLE_COHERENCE = False  # Désactivé par défaut pour les tests
+        ENABLE_COHERENCE = True # Désactivé par défaut pour les tests
         if ENABLE_COHERENCE and ch_ref is not None and ch_ref_xp is not None:
             try:
                 f, coh = sp_signal.coherence(  # utiliser sp_signal ici aussi
@@ -224,7 +235,7 @@ def process_channel(ch, sf, bands, ch_ref=None, position_norm=None):
             features.append(0.0)
         
         # 4. Paramètres de Hjorth (désactivés par défaut pour les tests)
-        ENABLE_HJORTH = False
+        ENABLE_HJORTH = True
         
         if ENABLE_HJORTH:
             try:
@@ -245,6 +256,20 @@ def process_channel(ch, sf, bands, ch_ref=None, position_norm=None):
         else:
             features.extend([0.0, 0.0])
         
+        # 6. Features temporelles complémentaires
+        try:
+            # Zero Crossing Rate (ZCR)
+            zc = np.where(np.diff(np.sign(ch_cpu)))[0]
+            zcr = len(zc) / len(ch_cpu)
+            
+            # Line Length (LL)
+            line_length = np.sum(np.abs(np.diff(ch_cpu))) / len(ch_cpu)
+            
+            features.extend([zcr, line_length])
+        except Exception as e:
+            print(f"Erreur features temporelles: {e}")
+            features.extend([0.0, 0.0])
+
         # 5. Position relative (si fournie)
         if position_norm is not None:
             features.append(float(position_norm))
@@ -308,32 +333,26 @@ def find_hypnogram(psg_path):
 
 
 def load_edf_with_annotations(psg_path, hypnogram_path, epoch_length=30.0):
-    import mne
-    import numpy as np
-    
+    epochs = []
+    true_labels = []
     # Charger le PSG
-    import io
     raw = mne.io.read_raw_edf(psg_path, preload=True, verbose=False)
     sfreq = raw.info['sfreq']
     n_samples = raw.n_times
     n_secs = n_samples / sfreq
     n_epochs = int(np.floor(n_secs / epoch_length))
 
-    # Charger les annotations de l'hypnogramme avec mne.read_annotations
+    # Charger les annotations de l'hypnogramme
     annotations = mne.read_annotations(hypnogram_path)
     
-    # Appliquer les annotations au signal brut pour assurer l'alignement temporel
+    # Appliquer les annotations au signal brut
     raw.set_annotations(annotations)
     
-    # Créer les epochs fixes AVANT de récupérer les événements
-    # pour s'assurer que les temps sont correctement alignés
+    # Créer les epochs fixes une seule fois
     epochs = mne.make_fixed_length_epochs(raw, duration=epoch_length, preload=True)
     
-    # Récupérer les événements à partir des annotations
+    # Extraire les événements
     events, event_id = mne.events_from_annotations(raw)
-    
-    # Créer un mapping inverse ID -> description
-    id_to_description = {v: k for k, v in event_id.items()}
     
     # Mapping des descriptions vers labels numériques
     stage_mapping = {
@@ -345,23 +364,25 @@ def load_edf_with_annotations(psg_path, hypnogram_path, epoch_length=30.0):
         'Sleep stage R': 4,
         'Sleep stage ?': -1,
         'Movement time': -1,
-        'Sleep stage S': 3,  # Certains datasets utilisent 'S' pour le sommeil profond
-        'Sleep stage 4': 3   # Redondant mais plus sûr
+        'Sleep stage S': 3   # Certains datasets utilisent 'S' pour sommeil profond
     }
     
-    # Initialiser les labels à -1
+    # Créer un mapping inverse ID -> description
+    id_to_description = {v: k for k, v in event_id.items()}
+    
+    # Initialiser les labels
     true_labels = np.full(len(epochs), fill_value=-1, dtype=int)
     
-    # Remplir true_labels selon les événements
+    # Remplir les true_labels
     for event in events:
-        onset = event[0] / sfreq  # Convertir l'échantillon en secondes
-        desc_id = event[2]  # ID numérique de l'événement
-        desc_str = id_to_description.get(desc_id, '')  # Description textuelle
+        onset_sec = event[0] / sfreq
+        desc_id = event[2]
+        desc_str = id_to_description.get(desc_id, '')
         
-        # Obtenir le label correspondant à la description
+        # Obtenir le label
         stage_label = stage_mapping.get(desc_str, -1)
         
-        # Si on n'a pas trouvé de correspondance directe, essayer une correspondance partielle
+        # Si pas trouvé, tentative partielle
         if stage_label == -1 and desc_str:
             for key, value in stage_mapping.items():
                 if key in desc_str:
@@ -369,13 +390,11 @@ def load_edf_with_annotations(psg_path, hypnogram_path, epoch_length=30.0):
                     break
         
         if stage_label != -1:
-            start_epoch = int(onset // epoch_length)
-            # Marquer cette époque avec le label correspondant
+            start_epoch = int(onset_sec // epoch_length)
             if start_epoch < len(true_labels):
                 true_labels[start_epoch] = stage_label
     
-    # Lisser les labels pour remplir les époques sans annotation
-    # en propageant le dernier label valide
+    # Propager le dernier label valide
     last_valid = -1
     for i in range(len(true_labels)):
         if true_labels[i] != -1:
@@ -383,30 +402,34 @@ def load_edf_with_annotations(psg_path, hypnogram_path, epoch_length=30.0):
         elif last_valid != -1:
             true_labels[i] = last_valid
     
-    # Créer les epochs fixes
-    epochs = mne.make_fixed_length_epochs(raw, duration=epoch_length, preload=True)
-    
-    # Vérification de cohérence
+    # Vérification cohérence
     n_epochs_final = len(epochs)
     if n_epochs_final != len(true_labels):
         print(f"⚠️ Mismatch epochs ({n_epochs_final}) vs labels ({len(true_labels)}), ajustement...")
         min_len = min(n_epochs_final, len(true_labels))
         true_labels = true_labels[:min_len]
-        epochs = epochs[:min_len]
-    
-    # Récupérer les informations avant toute opération qui pourrait fermer le fichier
-    n_epochs = len(epochs)
+        try:
+            if isinstance(epochs, np.ndarray):
+                epochs = epochs[:min_len]
+            else:
+                epochs = epochs.copy().crop(tmax=(min_len - 1) * epoch_length)
+        except Exception as e:
+            print(f"⚠️ Erreur lors du crop des epochs: {e}")
+            return None, None  # Sécurité → mieux renvoyer None ici plutôt que planter
+
+    # Log d'information
     n_channels = len(epochs.ch_names)
+    logger.info(f"✅ Données chargées: {len(epochs)} époques, {n_channels} canaux")
     
-    # Créer une copie des epochs pour les désolidariser du fichier brut
-    epochs_copy = epochs.copy()
-    
-    # Libérer la mémoire du raw et des epochs d'origine
+    # Libérer la mémoire brute
     del raw
-    del epochs
     
-    print(f"✅ Données chargées: {n_epochs} époques, {n_channels} canaux")
-    return epochs_copy, true_labels
+    # Protection du return en cas d'erreur
+    try:
+        return epochs, true_labels
+    except UnboundLocalError:
+        print("⚠️ Erreur : variable epochs non définie — retourne None.")
+        return None, None
 
 
 def process_single_psg_file(psg_path):
@@ -566,7 +589,7 @@ def process_single_psg_file(psg_path):
         # Configurations à tester
         reducers = [
             ('UMAP', umap.UMAP(n_components=2, random_state=42, n_jobs=-1) if not USE_GPU 
-              else cuUMAP(n_components=2, random_state=42, output_type='numpy')),
+              else cuUMAP(n_components=2, random_state=42, output_type='numpy', verbose=False)),
             ('PCA', PCA(n_components=2, random_state=42)),
             ('None', None)
         ]
@@ -735,6 +758,7 @@ def process_channel_wrapper(args):
     return process_channel(*args)
 
 def main():
+    PSGFileMaxToRead = 5
     # Vérifier et créer le dossier de sortie
     os.makedirs(os.path.dirname(OUTPUT_CSV) or '.', exist_ok=True)
     
@@ -743,7 +767,11 @@ def main():
     if not psg_files:
         print(f"Aucun fichier PSG trouvé dans {PSG_DIR}")
         return
-        
+    
+    print(f" {len(psg_files)} fichiers PSG trouvés")
+    # Limiter le nombre de fichiers lus
+    if PSGFileMaxToRead is not None and PSGFileMaxToRead > 0:
+        psg_files = psg_files[:PSGFileMaxToRead]
     print(f"Traitement de {len(psg_files)} fichiers PSG...")
     
     # Limiter le nombre de fichiers pour les tests
@@ -829,7 +857,7 @@ def main():
         correct_samples = 0
         
         for cm_str in final_df['confusion_matrix'].dropna():
-            cm = np.array(eval(cm_str))  # Convertir la liste en np.array
+            cm = np.array(ast.literal_eval(cm_str))  # Convertir la liste en np.array
             all_cm.append(cm)
             
             # Pour purity: on somme les max par ligne
@@ -840,6 +868,30 @@ def main():
         if total_samples > 0:
             global_purity = correct_samples / total_samples
             print(f"🎯 Score de purity global : {global_purity:.4f}")
+            # Visualisation heatmap de la matrice de confusion moyenne
+            if all_cm:
+                # Calcul de la matrice moyenne
+                conf_matrix_mean = np.mean(all_cm, axis=0)
+                
+                # Labels des stades (tu peux les adapter selon ta convention)
+                stage_labels = ['W', 'N1', 'N2', 'N3/N4', 'REM']
+                
+                # Affichage de la heatmap
+                plt.figure(figsize=(8, 6))
+                sns.heatmap(conf_matrix_mean, annot=True, fmt='.1f', cmap='Blues',
+                            xticklabels=stage_labels, yticklabels=stage_labels)
+                plt.title('Matrice de confusion moyenne finale (sur toutes les runs)')
+                plt.xlabel('Stade de sommeil prédit')
+                plt.ylabel('Vrai stade de sommeil')
+                plt.tight_layout()
+                if not matplotlib.is_interactive():
+                    print("⚠️ Mode non interactif détecté → sauvegarde de la heatmap en PNG.")
+                    plt.savefig("confusion_matrix_mean.png")
+                else:
+                    plt.show()
+            else:
+                print("⚠️ Pas de matrice de confusion disponible pour afficher la heatmap.")
+
         else:
             print("⚠️ Pas de matrice de confusion valide pour calculer la purity globale.")
 
